@@ -1,0 +1,258 @@
+﻿@model Place
+@{
+    User user = ViewBag.User;
+    Culture culture = ViewBag.Culture;
+    string placeName = Model.GetName(culture),
+        countryName = Model.Region.Country.GetName(culture),
+        regionName = Model.Region.GetName(culture),
+        typeName = PlaceTypes.GetPlaceType(Model.TypeId).GetName(culture),
+        placeDescription = Model.GetDescription(culture);
+    bool anyPhotos = Model.Photos != null && Model.Photos.Any();
+    ViewBag.Title = placeName;
+    Layout = "~/Views/Shared/_SideBarLayout.cshtml";
+    string url = String.Format("https://www.google.com/maps/place/" + "{0},{1}/@{0},{1}", Model.Latitude, Model.Longitude);
+    var isChosen = Html.Action("IsPlaceChosen", "Route", new { id = Model.Id });
+}
+
+<section>
+    <div class="m-5">
+        @HtmlManager.Image(Model.Image, placeName)
+    </div>
+    @if (user != null)
+    {
+        <div id="manage" class="btn btn-blue m-5"></div>
+    }
+    <a class="btn btn-blue m-5" target="_blank" href="@Url.Action("ChosenPlaces","Route")">@Language.ViewSelectedPlaces</a>
+    <a class="btn btn-blue m-5" target="_blank" href="@url">@Language.ViewOnMap</a>
+    <div class="m-5">
+        <p class="place_attributes"><span>@Language.Country</span>: @Html.ActionLink(countryName, "Country", "Search", new { id = Model.Region.CountryId }, null)</p>
+        <p class="place_attributes"><span>@Language.CityOrRegion</span>: @Html.ActionLink(regionName, "Region", "Search", new { id = Model.RegionId }, null)</p>
+        <p class="place_attributes"><span>@Language.Category</span>: @typeName</p>
+        <p class="place_attributes"><span>@Language.Rating</span>: @Model.Rating</p>
+        <p class="place_attributes"><span>@Language.Description</span> <br />@placeDescription</p>
+        @if (anyPhotos)
+        {
+            <p class="place_attributes"><span>@Language.Photos</span></p>
+            <div id="links">
+                @foreach (Photo photo in Model.Photos)
+                {
+                    <a href="@HtmlManager.DefineImagePath(photo.Image)" data-gallery>
+                        @HtmlManager.Image(photo.Image + "?h=64")
+                    </a>
+                }
+            </div>
+            <hr />
+        }
+    </div>
+</section>
+<div id="comments">
+
+    <h4 class="m-5">@Language.Comments</h4>
+    <div class="comments-list" id="comments-list">
+        @foreach (Comment comment in Model.Comments)
+        {
+            <div class="comment media">
+                <div class="pull-left">
+                    @HtmlManager.Image(comment.User.Image, classes: "avatar")
+                </div>
+
+                <div class="media-body">
+                    <strong>@Html.ActionLink(comment.User.FullName, "Info", "User", new { id = comment.User.Id }, null)</strong><br>
+                    <small>@comment.DateTime</small><br>
+                    <p>@comment.Message</p>
+                </div>
+            </div>
+        }
+        @if (user != null)
+        {
+            <div id="hidden-comment">
+                <div class="comment media" style="display: none">
+                    <div class="pull-left">
+                        @HtmlManager.Image(user.Image, classes: "avatar")
+                    </div>
+                    <div class="media-body">
+                        <strong>@Html.ActionLink(user.FullName, "Info", "User", new { id = user.Id }, null)</strong><br>
+                        <small></small><br>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <br />
+    @if (user == null)
+    {
+        <div style="font-size: 150%; font-style: italic">@Html.ActionLink(Language.SignIn, "LogIn", "User")@Language.ToLeaveComment</div>
+    }
+    else
+    {
+        <h4>@Language.LeaveComment</h4>
+        <p style="display: none;" id="notify">@Language.CommentEmpty</p>
+        <textarea rows="5" name="Message" id="Message" required="required" class="input-block-level"></textarea>
+        <button id="AddComment" class="btn btn-large btn-blue">@Language.Submit</button>
+    }
+</div>
+@section Scripts
+{
+    @if (anyPhotos)
+    {
+        @Scripts.Render("~/bundles/Gallery/Scripts")
+        <script>
+            $(function () {
+                $('#blueimp-gallery').data('fullScreen', true);
+                $('#blueimp-gallery').data('useBootstrapModal', false);
+                $('#blueimp-gallery').toggleClass('blueimp-gallery-controls', true);
+            })
+        </script>
+    }
+    @if (user != null)
+    {
+
+        <script>
+            var action1 = '@Url.Action("AddPlaceToChosen", "Route", new {placeId = Model.Id})';
+            var action2 = '@Url.Action("RemovePlaceFromChosen", "Route", new {placeId = Model.Id})';
+            var itext1 = '@Language.AddPlaceToTheRoute';
+            var itext2 = '@Language.RemovePlaceFromRoute';
+            var action;
+
+            function DefineText(isPlaceChosen) {
+                if (isPlaceChosen == "True" || isPlaceChosen == "true" || isPlaceChosen == true) {
+                    action = action2;
+                    $("#manage").html(itext2);
+
+                } else if (isPlaceChosen == "False" || isPlaceChosen == "false" || isPlaceChosen == false) {
+                    action = action1;
+                    $("#manage").html(itext1);
+                }
+            }
+
+            function ManagePlace() {
+                $.getJSON(action, function (result) {
+                    DefineText(result["IsPlaceChosen"]);
+                    //$.sticky(result["Message"]);
+                });
+            }
+
+            $(document).ready(function () {
+                DefineText('@isChosen');
+                $("#manage").click(function () {
+                    ManagePlace();
+                });
+            });
+
+            function isNullOrWhitespace(input) {
+
+                if (input == null) return true;
+
+                return input.replace(/\s/g, '').length < 1;
+            }
+
+            function moveTo(tag) {
+                $('html, body').animate({
+                    scrollTop: $(tag).offset().top
+                }, 500);
+            }
+
+            var temp = 0;
+            $(function () {
+                $("#AddComment").click(function () {
+                    var message = $("#Message").val();
+                    if (isNullOrWhitespace(message)) {
+                        $("#notify").show('slow');
+                        moveTo("#notify");
+                        return;
+                    }
+
+                    $.getJSON('@Url.Action("AddComment", "Search", new {placeId = Model.Id})' + '&message=' + message, function (result) {
+                        var res = result["Succeeded"];
+                        $("#Message").val("");
+                        if (res == true || res == "True" || res == "true") {
+                            var currentdate = new Date();
+                            var datetime = currentdate.getDate() + "."
+                                            + (currentdate.getMonth() + 1) + "."
+                                            + currentdate.getFullYear() + " "
+                                            + currentdate.getHours() + ":"
+                                            + currentdate.getMinutes() + ":"
+                                            + currentdate.getSeconds();
+                            var id = "temp" + temp++;
+                            var tag = "#" + id;
+                            $("#comments-list").append("<div id='" + id + "'" + $('#hidden-comment').html() + "</div>");
+                            $(tag + ' small').html(datetime);
+                            $(tag + ' p').html(message);
+                            moveTo(tag);
+                            $(tag).show('slow');
+                        } else {
+                            alert(response["Message"]);
+                        }
+                    });
+                });
+                $("#Message").focus(function () {
+                    $("#notify").hide('slow');
+                });
+            });
+        </script>
+    }
+}
+@if (anyPhotos)
+{
+    <div id="blueimp-gallery" class="blueimp-gallery">
+        <!-- The container for the modal slides -->
+        <div class="slides"></div>
+        <!-- Controls for the borderless lightbox -->
+
+        <a class="prev">‹</a>
+        <a class="next">›</a>
+        <a class="close">×</a>
+        <a class="play-pause"></a>
+        <ol class="indicator"></ol>
+        <!-- The modal dialog, which will be used to wrap the lightbox content -->
+        <div class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body next"></div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left prev">
+                            <i class="glyphicon glyphicon-chevron-left"></i>
+                            Previous
+                        </button>
+                        <button type="button" class="btn btn-primary next">
+                            Next
+                            <i class="glyphicon glyphicon-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section Styles
+{
+    @if (anyPhotos)
+    {
+        @Styles.Render("~/bundles/Gallery/Styles")
+    }
+    <style>
+        .place_attributes {
+            font-size: 130%;
+        }
+
+            .place_attributes span {
+                font-weight: bold;
+            }
+
+        .comments-list {
+            margin: 10px 0;
+        }
+
+        #Message {
+            width: 90%;
+        }
+        textarea {
+            padding-top: 5px;
+        }
+    </style>
+}

@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Country>
+@{
+    ViewBag.Title = Language.Countries;
+    Layout = "~/Views/Shared/_SideBarLayout.cshtml";
+    Culture culture = ViewBag.Culture;
+    bool b = Model.Any();
+}
+
+@helper Pagination(bool b,bool top = false)
+{
+    if (b)
+    {
+        @HtmlManager.Pagination(Url, "Countries", "Search", ViewBag.Max, ViewBag.Current, null, ViewBag.Search, top)
+    }
+}
+
+@HtmlManager.SearchResult(b, ViewBag.Search)
+@Pagination(b,true)
+<section>
+   @HtmlManager.CountryList(Url,Model,culture)
+</section>
+@Pagination(b)
+
+@section Search
+{
+    <form action="@Url.Action("Countries","Search")" method="GET" accept-charset="utf-8">
+        <input type="text" class="input-block-level" name="search" placeholder="@Language.SearchCountry">
+    </form>
+<div style="margin-top: -20px; margin-bottom: 20px;"><a style="font-size: 13px;" href="@Url.Action("Extended","Search")">@Language.ExtendedSearch <i class="icon-arrow-long-right"></i> </a></div>
+}

@@ -1,0 +1,107 @@
+﻿@{
+    ViewBag.Title = Language.About;
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<section class="title">
+    <div class="container">
+        <div class="row-fluid">
+            <div class="span12">
+                <div id="button-back" onclick="history.go(-1); return false;" title="@Language.Back">
+                    <i class="icon-arrow-circle-left"></i>
+                </div>
+                <h1>@Language.About</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / .title -->
+<section id="about-us" class="container">
+    <div class="row-fluid">
+        
+        <div class="span6">
+            <img src="~/Images/logo.png"/>
+        </div>
+        <div class="span6">
+            <h3>@Language.WhatIsITourist</h3>
+            <p style="font-size: 130%;font-style: italic">@Language.ITouristDescription</p>
+        </div>
+    </div>
+    <hr>
+    <h1 class="center">@Language.OurTeam</h1>
+    <hr>
+    <div class="row-fluid" style="text-align: center">
+        <div class="span3 m-10">
+            <div class="box">
+                <p><img src="~/Images/Team/team1.jpg" alt=""></p>
+                <h5>@Language.Vova</h5>
+                <a class="btn btn-social btn-facebook" href="#"><i class="icon-facebook"></i></a> <a class="btn btn-social btn-google-plus" href="#"><i class="icon-google-plus"></i></a> <a class="btn btn-social btn-twitter" href="#"><i class="icon-twitter"></i></a> 
+            </div>
+        </div>
+
+        <div class="span3 m-10">
+            <div class="box">
+                <p><img src="~/Images/Team/team2.jpg" alt=""></p>
+                <h5>@Language.Dima</h5>
+                <a class="btn btn-social btn-facebook" href="#"><i class="icon-facebook"></i></a> <a class="btn btn-social btn-google-plus" href="#"><i class="icon-google-plus"></i></a> <a class="btn btn-social btn-twitter" href="#"><i class="icon-twitter"></i></a> 
+            </div>
+        </div>
+
+        <div class="span3 m-10">
+            <div class="box">
+                <p><img src="~/Images/Team/team3.jpg" alt=""></p>
+                <h5>@Language.Reidan</h5>
+                <a class="btn btn-social btn-facebook" href="#"><i class="icon-facebook"></i></a> <a class="btn btn-social btn-google-plus" href="#"><i class="icon-google-plus"></i></a> <a class="btn btn-social btn-twitter" href="#"><i class="icon-twitter"></i></a> 
+            </div>
+        </div>
+
+        <div class="span3 m-10">
+            <div class="box">
+                <p><img src="~/Images/Team/team4.jpg" alt=""></p>
+                <h5>@Language.Maxim</h5>
+                <a class="btn btn-social btn-facebook" href="#"><i class="icon-facebook"></i></a> <a class="btn btn-social btn-google-plus" href="#"><i class="icon-google-plus"></i></a> <a class="btn btn-social btn-twitter" href="#"><i class="icon-twitter"></i></a> 
+            </div>
+        </div>
+    </div>
+    <div class="row-fluid" style="text-align: center">
+        <div class="span11 offset2">
+            <div class="span3 m-10">
+                <div class="box">
+                    <p><img src="~/Images/Team/team5.jpg" alt=""></p>
+                    <h5>@Language.Lesha</h5>
+                    <a class="btn btn-social btn-facebook" href="#"><i class="icon-facebook"></i></a> <a class="btn btn-social btn-google-plus" href="#"><i class="icon-google-plus"></i></a> <a class="btn btn-social btn-twitter" href="#"><i class="icon-twitter"></i></a>
+                </div>
+            </div>
+            <div class="span3 m-10">
+                <div class="box">
+                    <p><img src="~/Images/Team/team6.jpg" alt=""></p>
+                    <h5>@Language.Masha</h5>
+                    <a class="btn btn-social btn-facebook" href="#"><i class="icon-facebook"></i></a> <a class="btn btn-social btn-google-plus" href="#"><i class="icon-google-plus"></i></a> <a class="btn btn-social btn-twitter" href="#"><i class="icon-twitter"></i></a>
+                </div>
+            </div>
+            <div class="span3 m-10">
+                <div class="box">
+                    <p><img src="~/Images/Team/team7.jpg" alt=""></p>
+                    <h5>@Language.Kostya</h5>
+                    <a class="btn btn-social btn-facebook" href="#"><i class="icon-facebook"></i></a> <a class="btn btn-social btn-google-plus" href="#"><i class="icon-google-plus"></i></a> <a class="btn btn-social btn-twitter" href="#"><i class="icon-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p>&nbsp;</p>
+    <p></p>
+</section>
+@section Styles
+{
+    <style>
+      body {
+          background: ghostwhite;
+      }
+        hr {
+            border-top: 1px solid #0151c3;
+            border-bottom: 1px solid #ffffff;
+        }
+        .box h5 {
+            margin-bottom: 5px;
+        }
+    </style>
+}

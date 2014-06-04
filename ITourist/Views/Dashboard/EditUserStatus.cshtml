@@ -1,0 +1,58 @@
+﻿@model User
+
+@{
+    ViewBag.Title = "Редактирование пользователя";
+    Layout = "~/Views/Shared/Dashboard_Layout.cshtml";
+    if (Model == null)
+    {
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header fleft">Пользователь не найден</h1>
+        </div>
+    </div>
+        return;
+    }
+if (ViewBag.User.Id == Model.Id)
+    {
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header fleft">Вы не можете менять свой статус</h1>
+        </div>
+    </div>
+        return;
+    }
+
+    var userTypes = UserStatus.GetAll().ToArray();
+    int chosenType = Model.Status;
+}
+
+<div class="breadcrumbs flat">
+    @HtmlManager.DashboardBreadCrumbs(Html, Model)
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header fleft">Изменение статуса пользователя</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        @HtmlManager.ProccessResultContainer(ViewBag.Result)
+        @using (Html.BeginForm("ManageUserEditing", "Dashboard", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(id => Model.Id)
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true)
+
+                @HtmlManager.DropDownListDashboard(Html, "Статус", "type", userTypes, textField: "Translation.Ru", selectedValue: chosenType)
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @HtmlManager.SubmitButton()
+                        @HtmlManager.DefaultButton(Html.ActionLink("Назад", "Users", "Dashboard"))
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

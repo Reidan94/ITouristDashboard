@@ -1,0 +1,387 @@
+﻿INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (1, 1, N'Images/Countries/Afghanistan.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (2, 2, N'Images/Countries/Albania.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (3, 3, N'Images/Countries/Algeria.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (4, 4, N'Images/Countries/Andorra.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (5, 5, N'Images/Countries/Angola.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (6, 6, N'Images/Countries/AntiguaAndBarbuda.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (7, 7, N'Images/Countries/Argentina.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (8, 8, N'Images/Countries/Armenia.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (9, 9, N'Images/Countries/Australia.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (10, 10, N'Images/Countries/Austria.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (11, 11, N'Images/Countries/Azerbaijan.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (12, 12, N'Images/Countries/Bahamas.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (13, 13, N'Images/Countries/Bahrain.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (14, 14, N'Images/Countries/Bangladesh.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (15, 15, N'Images/Countries/Barbados.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (16, 16, N'Images/Countries/Belarus.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (17, 17, N'Images/Countries/Belgium.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (18, 18, N'Images/Countries/Belize.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (19, 19, N'Images/Countries/Benin.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (20, 20, N'Images/Countries/Bhutan.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (21, 21, N'Images/Countries/Bolivia.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (22, 22, N'Images/Countries/BosniaAndHerzegovina.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (23, 23, N'Images/Countries/Botswana.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (24, 24, N'Images/Countries/Brazil.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (25, 25, N'Images/Countries/Brunei.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (26, 26, N'Images/Countries/Bulgaria.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (27, 27, N'Images/Countries/BurkinaFaso.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (28, 28, N'Images/Countries/Burundi.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (29, 29, N'Images/Countries/Cambodia.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (30, 30, N'Images/Countries/Cameroon.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (31, 31, N'Images/Countries/Canada.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (32, 32, N'Images/Countries/CapeVerde.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (33, 33, N'Images/Countries/CentralAfricanRepublic.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (34, 34, N'Images/Countries/Chad.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (35, 35, N'Images/Countries/Chile.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (36, 36, N'Images/Countries/China.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (37, 37, N'Images/Countries/Colombia.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (38, 38, N'Images/Countries/Comoros.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (39, 39, N'Images/Countries/Congo.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (40, 40, N'Images/Countries/CookIslands.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (41, 41, N'Images/Countries/CostaRica.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (42, 42, N'Images/Countries/Croatia.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (43, 43, N'Images/Countries/Cuba.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (44, 44, N'Images/Countries/Cyprus.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (45, 45, N'Images/Countries/CzechRepublic.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (46, 46, N'Images/Countries/DemocraticRepublicOfTheCongo.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (47, 47, N'Images/Countries/Denmark.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (48, 48, N'Images/Countries/Djibouti.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (49, 49, N'Images/Countries/Dominica.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (50, 50, N'Images/Countries/DominicanRepublic.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (51, 51, N'Images/Countries/EastTimor.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (52, 52, N'Images/Countries/Ecuador.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (53, 53, N'Images/Countries/Egypt.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (54, 54, N'Images/Countries/ElSalvador.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (55, 55, N'Images/Countries/EquatorialGuinea.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (56, 56, N'Images/Countries/Eritrea.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (57, 57, N'Images/Countries/Estonia.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (58, 58, N'Images/Countries/Ethiopia.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (59, 59, N'Images/Countries/Fiji.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (60, 60, N'Images/Countries/Finland.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (61, 61, N'Images/Countries/France.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (62, 62, N'Images/Countries/Gabon.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (63, 63, N'Images/Countries/Gambia.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (64, 64, N'Images/Countries/Georgia.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (65, 65, N'Images/Countries/Germany.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (66, 66, N'Images/Countries/Ghana.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (67, 67, N'Images/Countries/Greece.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (68, 68, N'Images/Countries/Grenada.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (69, 69, N'Images/Countries/Guatemala.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (70, 70, N'Images/Countries/Guinea.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (71, 71, N'Images/Countries/GuineaBissau.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (72, 72, N'Images/Countries/Guyana.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (73, 73, N'Images/Countries/Haiti.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (74, 74, N'Images/Countries/Honduras.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (75, 75, N'Images/Countries/Hungary.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (76, 76, N'Images/Countries/Iceland.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (77, 77, N'Images/Countries/India.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (78, 78, N'Images/Countries/Indonesia.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (79, 79, N'Images/Countries/Iran.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (80, 80, N'Images/Countries/Iraq.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (81, 81, N'Images/Countries/Ireland.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (82, 82, N'Images/Countries/Israel.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (83, 83, N'Images/Countries/Italy.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (84, 84, N'Images/Countries/IvoryCoast.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (85, 85, N'Images/Countries/Jamaica.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (86, 86, N'Images/Countries/Japan.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (87, 87, N'Images/Countries/Jordan.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (88, 88, N'Images/Countries/Kazakhstan.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (89, 89, N'Images/Countries/Kenya.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (90, 90, N'Images/Countries/Kiribati.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (91, 91, N'Images/Countries/Kuwait.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (92, 92, N'Images/Countries/Kyrgyzstan.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (93, 93, N'Images/Countries/Laos.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (94, 94, N'Images/Countries/Latvia.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (95, 95, N'Images/Countries/Lebanon.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (96, 96, N'Images/Countries/Lesotho.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (97, 97, N'Images/Countries/Liberia.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (98, 98, N'Images/Countries/Libya.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (99, 99, N'Images/Countries/Lithuania.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (100, 100, N'Images/Countries/Luxembourg.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (101, 101, N'Images/Countries/Macedonia.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (102, 102, N'Images/Countries/Madagascar.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (103, 103, N'Images/Countries/Malawi.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (104, 104, N'Images/Countries/Malaysia.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (105, 105, N'Images/Countries/Maldives.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (106, 106, N'Images/Countries/Mali.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (107, 107, N'Images/Countries/Malta.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (108, 108, N'Images/Countries/MarshallIslands.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (109, 109, N'Images/Countries/Mauritania.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (110, 110, N'Images/Countries/Mauritius.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (111, 111, N'Images/Countries/Mexico.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (112, 112, N'Images/Countries/Micronesia.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (113, 113, N'Images/Countries/Moldova.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (114, 114, N'Images/Countries/Monaco.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (115, 115, N'Images/Countries/Mongolia.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (116, 116, N'Images/Countries/Montenegro.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (117, 117, N'Images/Countries/Morocco.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (118, 118, N'Images/Countries/Mozambique.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (119, 119, N'Images/Countries/Myanmar.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (120, 120, N'Images/Countries/Namibia.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (121, 121, N'Images/Countries/Nauru.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (122, 122, N'Images/Countries/Nepal.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (123, 123, N'Images/Countries/Netherlands.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (124, 124, N'Images/Countries/NewZealand.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (125, 125, N'Images/Countries/Nicaragua.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (126, 126, N'Images/Countries/Niger.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (127, 127, N'Images/Countries/Nigeria.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (128, 128, N'Images/Countries/Niue.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (129, 129, N'Images/Countries/NorthKorea.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (130, 130, N'Images/Countries/Norway.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (131, 131, N'Images/Countries/Oman.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (132, 132, N'Images/Countries/Pakistan.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (133, 133, N'Images/Countries/Palau.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (134, 134, N'Images/Countries/Panama.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (135, 135, N'Images/Countries/PapuaNewGuinea.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (136, 136, N'Images/Countries/Paraguay.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (137, 137, N'Images/Countries/Peru.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (138, 138, N'Images/Countries/Philippines.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (139, 139, N'Images/Countries/Poland.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (140, 140, N'Images/Countries/Portugal.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (141, 141, N'Images/Countries/Qatar.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (142, 142, N'Images/Countries/Romania.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (143, 143, N'Images/Countries/Russia.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (144, 144, N'Images/Countries/Rwanda.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (145, 145, N'Images/Countries/SaintKittsAndNevis.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (146, 146, N'Images/Countries/SaintLucia.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (147, 147, N'Images/Countries/SaintVincentAndTheGrenadines.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (148, 148, N'Images/Countries/Samoa.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (149, 149, N'Images/Countries/SanMarino.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (150, 150, N'Images/Countries/SaoTomeAndPrincipe.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (151, 151, N'Images/Countries/SaudiArabia.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (152, 152, N'Images/Countries/Senegal.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (153, 153, N'Images/Countries/Serbia.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (154, 154, N'Images/Countries/Seychelles.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (155, 155, N'Images/Countries/SierraLeone.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (156, 156, N'Images/Countries/Singapore.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (157, 157, N'Images/Countries/Slovakia.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (158, 158, N'Images/Countries/Slovenia.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (159, 159, N'Images/Countries/SolomonIslands.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (160, 160, N'Images/Countries/Somalia.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (161, 161, N'Images/Countries/SouthAfrica.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (162, 162, N'Images/Countries/SouthKorea.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (163, 163, N'Images/Countries/SouthSudan.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (164, 164, N'Images/Countries/Spain.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (165, 165, N'Images/Countries/SriLanka.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (166, 166, N'Images/Countries/Sudan.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (167, 167, N'Images/Countries/Suriname.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (168, 168, N'Images/Countries/Swaziland.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (169, 169, N'Images/Countries/Sweden.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (170, 170, N'Images/Countries/Switzerland.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (171, 171, N'Images/Countries/Syria.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (172, 172, N'Images/Countries/Tajikistan.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (173, 173, N'Images/Countries/Tanzania.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (174, 174, N'Images/Countries/Thailand.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (175, 175, N'Images/Countries/Togo.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (176, 176, N'Images/Countries/Tonga.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (177, 177, N'Images/Countries/TrinidadAndTobago.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (178, 178, N'Images/Countries/Tunisia.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (179, 179, N'Images/Countries/Turkey.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (180, 180, N'Images/Countries/Turkmenistan.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (181, 181, N'Images/Countries/Tuvalu.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (182, 182, N'Images/Countries/Uganda.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (183, 183, N'Images/Countries/Ukraine.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (184, 184, N'Images/Countries/UnitedArabEmirates.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (185, 185, N'Images/Countries/UnitedKingdom.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (186, 186, N'Images/Countries/UnitedStates.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (187, 187, N'Images/Countries/Uruguay.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (188, 188, N'Images/Countries/Uzbekistan.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (189, 189, N'Images/Countries/Vanuatu.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (190, 190, N'Images/Countries/Venezuela.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (191, 191, N'Images/Countries/Vietnam.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (192, 192, N'Images/Countries/Yemen.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (193, 193, N'Images/Countries/Zambia.png')
+
+INSERT INTO [dbo].[Countries] ([Id], [Name], [Image]) VALUES (194, 194, N'Images/Countries/Zimbabwe.png')

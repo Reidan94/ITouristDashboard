@@ -1,0 +1,17 @@
+﻿@model User
+@{
+    ViewBag.Title = Model.FullName;
+    Layout = "~/Views/Shared/_SideBarLayout.cshtml";
+}
+<section>
+    <div class="user-avatar">
+        <a class="magnifier" href="@HtmlManager.DefineImagePath(Model.Image)">
+            <div class="">
+                @HtmlManager.Image(Model.Image + "?w=400", Model.FullName)
+            </div>
+        </a>
+    </div>
+    <br />
+    <p style="font-size: large"><span>@Language.Experience </span>: <span>@Model.Experience</span></p>
+</section>
+

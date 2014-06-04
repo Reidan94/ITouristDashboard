@@ -1,0 +1,387 @@
+﻿INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (1, N'Afghanistan', N'Афганистан')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (2, N'Albania', N'Албания')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (3, N'Algeria', N'Алжир')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (4, N'Andorra', N'Андорра')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (5, N'Angola', N'Ангола')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (6, N'Antigua and Barbuda', N'Антигуа и Барбуда')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (7, N'Argentina', N'Аргентина')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (8, N'Armenia', N'Армения')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (9, N'Australia', N'Австралия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (10, N'Austria', N'Австрия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (11, N'Azerbaijan', N'Азербайджан')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (12, N'Bahamas', N'Багамские острова')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (13, N'Bahrain', N'Бахрейн')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (14, N'Bangladesh', N'Бангладеш')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (15, N'Barbados', N'Барбадос')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (16, N'Belarus', N'Беларусь')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (17, N'Belgium', N'Бельгия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (18, N'Belize', N'Белиз')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (19, N'Benin', N'Бенин')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (20, N'Bhutan', N'Бутан')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (21, N'Bolivia', N'Боливия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (22, N'Bosnia and Herzegovina', N'Босния и Герцеговина')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (23, N'Botswana', N'Ботсвана')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (24, N'Brazil', N'Бразилия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (25, N'Brunei ', N'Бруней')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (26, N'Bulgaria', N'Болгария')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (27, N'Burkina Faso', N'Буркина-Фасо')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (28, N'Burundi', N'Бурунди')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (29, N'Cambodia', N'Камбоджа')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (30, N'Cameroon', N'Камерун')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (31, N'Canada', N'Канада')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (32, N'Cape Verde', N'Кабо-Верде')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (33, N'Central African Republic', N'Центральноафриканская Республика')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (34, N'Chad', N'Чад')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (35, N'Chile', N'Чили')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (36, N'China', N'Китай')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (37, N'Colombia', N'Колумбия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (38, N'Comoros', N'Коморские острова')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (39, N'Congo', N'Конго')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (40, N'Cook Islands', N'Острова Кука')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (41, N'Costa Rica', N'Коста-Рика')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (42, N'Croatia', N'Хорватия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (43, N'Cuba', N'Куба')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (44, N'Cyprus', N'Кипр')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (45, N'Czech Republic', N'Чехия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (46, N'Democratic Republic of the Congo', N'Демократическая Республика Конго')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (47, N'Denmark', N'Дания')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (48, N'Djibouti', N'Джибути')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (49, N'Dominica', N'Доминика')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (50, N'Dominican Republic', N'Доминиканская Республика')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (51, N'East Timor', N'Восточный Тимор')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (52, N'Ecuador', N'Эквадор')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (53, N'Egypt', N'Египет')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (54, N'El Salvador', N'Сальвадор')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (55, N'Equatorial Guinea', N'Экваториальная Гвинея')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (56, N'Eritrea', N'Эритрея')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (57, N'Estonia', N'Эстония')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (58, N'Ethiopia', N'Эфиопия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (59, N'Fiji', N'Фиджи')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (60, N'Finland', N'Финляндия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (61, N'France', N'Франция')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (62, N'Gabon', N'Габон')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (63, N'Gambia', N'Гамбия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (64, N'Georgia', N'Грузия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (65, N'Germany', N'Германия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (66, N'Ghana', N'Гана')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (67, N'Greece', N'Греция')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (68, N'Grenada', N'Гренада')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (69, N'Guatemala', N'Гватемала')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (70, N'Guinea', N'Гвинея')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (71, N'Guinea-Bissau', N'Гвинея-Бисау')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (72, N'Guyana', N'Гайана')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (73, N'Haiti', N'Гаити')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (74, N'Honduras', N'Гондурас')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (75, N'Hungary', N'Венгрия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (76, N'Iceland', N'Исландия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (77, N'India', N'Индия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (78, N'Indonesia', N'Индонезия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (79, N'Iran', N'Иран')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (80, N'Iraq', N'Ирак')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (81, N'Ireland', N'Ирландия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (82, N'Israel', N'Израиль')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (83, N'Italy', N'Италия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (84, N'Ivory Coast', N'Кот-д’Ивуар')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (85, N'Jamaica', N'Ямайка')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (86, N'Japan', N'Япония')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (87, N'Jordan', N'Иордания')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (88, N'Kazakhstan', N'Казахстан')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (89, N'Kenya', N'Кения')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (90, N'Kiribati', N'Кирибати')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (91, N'Kuwait', N'Кувейт')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (92, N'Kyrgyzstan', N'Киргизия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (93, N'Laos', N'Лаос')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (94, N'Latvia', N'Латвия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (95, N'Lebanon', N'Ливан')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (96, N'Lesotho', N'Лесото')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (97, N'Liberia', N'Либерия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (98, N'Libya', N'Ливия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (99, N'Lithuania', N'Литва')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (100, N'Luxembourg', N'Люксембург')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (101, N'Macedonia', N'Македония')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (102, N'Madagascar', N'Мадагаскар')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (103, N'Malawi', N'Малави')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (104, N'Malaysia', N'Малайзия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (105, N'Maldives', N'Мальдивы')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (106, N'Mali', N'Мали')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (107, N'Malta', N'Мальта')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (108, N'Marshall Islands', N'Маршалловы Острова')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (109, N'Mauritania', N'Мавритания')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (110, N'Mauritius', N'Маврикий')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (111, N'Mexico', N'Мексика')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (112, N'Micronesia', N'Микронейзия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (113, N'Moldova', N'Молдова')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (114, N'Monaco', N'Монако')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (115, N'Mongolia', N'Монголия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (116, N'Montenegro', N'Монтенегро')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (117, N'Morocco', N'Марокко')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (118, N'Mozambique', N'Мозамбик')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (119, N'Myanmar', N'Мьянма')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (120, N'Namibia', N'Намибия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (121, N'Nauru', N'Науру')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (122, N'Nepal', N'Непал')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (123, N'Netherlands', N'Нидерланды')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (124, N'New Zealand', N'Новая Зеландия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (125, N'Nicaragua', N'Никарагуа')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (126, N'Niger', N'Нигер')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (127, N'Nigeria', N'Нигерия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (128, N'Niue', N'Ниуэ')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (129, N'North Korea', N'Северная Корея')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (130, N'Norway', N'Норвегия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (131, N'Oman', N'Оман')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (132, N'Pakistan', N'Пакистан')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (133, N'Palau', N'Палау')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (134, N'Panama', N'Панама')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (135, N'Papua New Guinea', N'Папуа — Новая Гвинея')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (136, N'Paraguay', N'Парагвай')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (137, N'Peru', N'Перу')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (138, N'Philippines', N'Филиппины')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (139, N'Poland', N'Польша')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (140, N'Portugal', N'Португалия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (141, N'Qatar', N'Катар')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (142, N'Romania', N'Румыния')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (143, N'Russia', N'Россия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (144, N'Rwanda', N'Руанда')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (145, N'Saint Kitts and Nevis', N'Сент-Китс и Невис')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (146, N'Saint Lucia', N'Сент-Люсия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (147, N'Saint Vincent and the Grenadines', N'Сент-Винсент и Гренадины')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (148, N'Samoa', N'Самоа')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (149, N'San Marino', N'Сан Марино')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (150, N'Sao Tome and Principe', N'Сан-Томе и Принсип')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (151, N'Saudi Arabia', N'Саудовская Аравия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (152, N'Senegal', N'Сенегал')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (153, N'Serbia', N'Сербия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (154, N'Seychelles', N'Сейшельские Острова')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (155, N'Sierra Leone', N'Сьерра-Леоне')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (156, N'Singapore', N'Сингапур')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (157, N'Slovakia', N'Словакия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (158, N'Slovenia', N'Словения')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (159, N'Solomon Islands', N'Соломоновы Острова')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (160, N'Somalia', N'Сомали')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (161, N'South Africa', N'Южно-Африканская Республика')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (162, N'South Korea', N'Южная Корея')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (163, N'South Sudan', N'Южный Судан')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (164, N'Spain', N'Испания')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (165, N'Sri Lanka', N'Шри-Ланка')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (166, N'Sudan', N'Судан')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (167, N'Suriname', N'Суринам')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (168, N'Swaziland', N'Свазиленд')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (169, N'Sweden', N'Швеция')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (170, N'Switzerland', N'Швейцария')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (171, N'Syria', N'Сирия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (172, N'Tajikistan', N'Таджикистан')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (173, N'Tanzania', N'Танзания')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (174, N'Thailand', N'Таиланд')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (175, N'Togo', N'Того')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (176, N'Tonga', N'Тонга')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (177, N'Trinidad and Tobago', N'Тринидад и Тобаго')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (178, N'Tunisia', N'Тунис')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (179, N'Turkey', N'Турция')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (180, N'Turkmenistan', N'Туркмения')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (181, N'Tuvalu', N'Тувалу')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (182, N'Uganda', N'Уганда')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (183, N'Ukraine', N'Украина')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (184, N'United Arab Emirates', N'Объединённые Арабские Эмираты')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (185, N'United Kingdom', N'Великобритания')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (186, N'United States of America', N'Соединённые Штаты Америки')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (187, N'Uruguay', N'Уругвай')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (188, N'Uzbekistan', N'Узбекистан')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (189, N'Vanuatu', N'Вануату')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (190, N'Venezuela', N'Венесуэла')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (191, N'Viet Nam', N'Вьетнам')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (192, N'Yemen', N'Йемен')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (193, N'Zambia', N'Замбия')
+
+INSERT INTO [dbo].[Translations] ([Id], [En], [Ru]) VALUES (194, N'Zimbabwe', N'Зимбабве')

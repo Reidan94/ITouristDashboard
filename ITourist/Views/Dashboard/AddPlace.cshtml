@@ -1,0 +1,42 @@
+﻿@model Region
+@{
+    ViewBag.Title = "Добавление места";
+    Layout = "~/Views/Shared/Dashboard_Layout.cshtml";
+}
+
+<div class="breadcrumbs flat">
+    @HtmlManager.DashboardBreadCrumbs(Html, Model.Country, Model)
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header fleft">Добавить место</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        @HtmlManager.ProccessResultContainer(ViewBag.Result)
+        @using (Html.BeginForm("ManagePlaceAdding", "Dashboard", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.Hidden("RegionId", Model.Id)
+            @Html.Hidden("Confirmed", true)
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true)
+                @HtmlManager.InputText("Название (EN)", "Translation.En", "Place", required: true)
+                @HtmlManager.InputText("Название (RU)", "Translation.Ru", "Место", required: true)
+                @HtmlManager.TextArea("Описание (EN)", "Translation1.En", "Description", required: true)
+                @HtmlManager.TextArea("Описание (RU)", "Translation1.Ru", "Описание", required: true)
+                @HtmlManager.DropDownListDashboard(Html, "Тип", "TypeId", PlaceTypes.GetAllPlaceTypes(), textField: "Translation.Ru")
+                @HtmlManager.InputNumber("Широта", "Latitude", 0.0f, -90.0f, 90.0f, step: 0.000001f, required: true)
+                @HtmlManager.InputNumber("Долгота", "Longitude", 0.0f, -180.0f, 180.0f, step: 0.000001f, required: true)
+                @HtmlManager.DashboardImageUpload("Изображение")
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @HtmlManager.SubmitButton()
+                        @HtmlManager.DefaultButton(Html.ActionLink("Назад", "Region", "Dashboard", new { regionId = Model.Id }, null))
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

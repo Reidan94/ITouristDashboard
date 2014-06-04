@@ -1,0 +1,33 @@
+﻿@model Country
+@{
+    Culture culture = ViewBag.Culture;
+    var name = Model.GetName(culture);
+    ViewBag.Title = name;
+    Layout = "~/Views/Shared/_SideBarLayout.cshtml";
+    bool any = Model.Regions.Any();
+}
+@helper Pagination(bool b, bool top = false)
+{
+    if (b)
+    {
+        @HtmlManager.Pagination(Url, "Country", "Search", ViewBag.Max, ViewBag.Current, Model.Id, ViewBag.Search, top)
+    }
+}
+@section Search
+{
+    <form action="@Url.Action("Country","Search",new{id=Model.Id})" method="GET" accept-charset="utf-8">
+        <input type="text" class="input-block-level" name="search" placeholder="@Language.SearchRegion">
+    </form>
+    <div style="margin-top: -20px; margin-bottom: 20px;"><a style="font-size: 13px;" href="@Url.Action("Extended","Search")">@Language.ExtendedSearch <i class="icon-arrow-long-right"></i> </a></div>
+}
+@HtmlManager.SearchResult(any, ViewBag.Search)
+
+@if (!any)
+{
+    return;
+}
+@Pagination(true, true)
+<section>
+    @HtmlManager.RegionList(Url, Model.Regions, culture)
+</section>
+@Pagination(true)

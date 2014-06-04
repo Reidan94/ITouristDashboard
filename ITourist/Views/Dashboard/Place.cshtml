@@ -1,0 +1,203 @@
+﻿@model Place
+@{
+    Layout = "~/Views/Shared/Dashboard_Layout.cshtml";
+    if (Model == null)
+    {
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Место не найдено!</h1>
+            </div>
+        </div>
+        return;
+    }
+
+    var modelNameRu = Model.Translation.Ru;
+    var modelNameEn = Model.Translation.En;
+    ViewBag.Title = modelNameRu;
+    var region = Model.Region;
+    var country = region.Country;
+    var type = PlaceTypes.GetPlaceType(Model.TypeId).Translation.Ru;
+    var photos = Model.Photos;
+    var comments = Model.Comments;
+}
+
+@section Styles
+{
+    @Styles.Render("~/bundles/DataTablesStyles")
+}
+
+@section Scripts
+{
+    @Scripts.Render("~/bundles/DataTablesScripts")
+    <script>
+        $(document).ready(function () {
+            $('#dataTables-example').dataTable();
+        });
+    </script>
+}
+
+<div class="breadcrumbs flat">
+    @HtmlManager.DashboardBreadCrumbs(Html, country, region, Model)
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header fleft">@Model.Translation.Ru</h1>
+        <div class="action-buttons">
+            @HtmlManager.EditButton(HtmlManager.EditLink(Html, Model))
+            @HtmlManager.DeleteButton(HtmlManager.DeleteLink(Html, Model))
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        @HtmlManager.ProccessResultContainer(ViewBag.Result)
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <tr>
+                    <td>Название (EN)</td>
+                    <td>@modelNameEn</td>
+                </tr>
+                <tr>
+                    <td>Название (RUS)</td>
+                    <td>@modelNameRu</td>
+                </tr>
+                <tr>
+                    <td>Тип</td>
+                    <td>@type</td>
+                </tr>
+                <tr>
+                    <td>Описание (EN)</td>
+                    <td>@Model.Translation1.En</td>
+                </tr>
+                <tr>
+                    <td>Описание (RUS)</td>
+                    <td>@Model.Translation1.Ru</td>
+                </tr>
+                <tr>
+                    <td>Координаты</td>
+                    <td>@Model.Coordinates</td>
+                </tr>
+                <tr>
+                    <td>Изображение</td>
+                    <td>@HtmlManager.Image(Model.Image + "?w=250", modelNameRu)</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header fleft">Фотографии</h1>
+        <div class="action-buttons">
+            @HtmlManager.AddButton(Html.ActionLink("Добавить", "AddPlacePhoto", "Dashboard", new { placeId = Model.Id }, null))
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            @if (!photos.Any())
+            {
+                <div class="panel-body">
+                    <h3>Фотографии отсутствуют</h3>
+                </div>
+            }
+            else
+            {
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Картинка</th>
+                                    <th>Действия</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var photo in photos)
+                                {
+                                    <tr>
+
+                                        <td>@photo.Id</td>
+                                        <td>
+                                            <div class="grid_4 custom_grid">
+                                                <a href="@HtmlManager.DefineImagePath(photo.Image)">
+                                                    @HtmlManager.Image(photo.Image + "?w=250", alt: Model.Translation.Ru)
+                                                </a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            @HtmlManager.DeleteIconLink(Url.Action("ManagePlacePhotoDeleting",
+                                            "Dashboard", new
+                                            {
+                                                placeId = Model.Id,
+                                                photoId = photo.Id
+                                            }))
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header fleft">Комментарии</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            @if (!comments.Any())
+            {
+                <div class="panel-body">
+                    <h3>Комментарии отсутствуют</h3>
+                </div>
+                return;
+            }
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Дата и время</th>
+                                <th>Сообщение</th>
+                                <th>Пользователь</th>
+                                <th>Действия</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var comment in comments)
+                            {
+                                <tr>
+
+                                    <td>@comment.Id</td>
+                                    <td>
+                                        @String.Format("{0} {1}", comment.DateTime.ToShortDateString(), comment.DateTime.ToShortTimeString())
+                                    </td>
+                                    <td>
+                                        @comment.Message
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink(comment.User.LastName + "  " + comment.User.Name, "GetUser", new { id = comment.UserId })
+                                    </td>
+                                    <td>
+                                        @HtmlManager.DeleteIconLink(Url.Action("ManagePlaceCommentDeleting",
+                                        "Dashboard", new { commentId = comment.Id, placeId = Model.Id }))
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

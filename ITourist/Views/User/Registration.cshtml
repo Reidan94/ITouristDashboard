@@ -1,0 +1,73 @@
+﻿@model RegistrationModel
+@{
+    ViewBag.Title = Language.Registration;
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    ProcessResult result = ViewBag.Result;
+    Culture culture = ViewBag.Culture;
+}
+<section class="title">
+    <div class="container">
+        <div class="row-fluid">
+            <div class="span6">
+                <h1>@Language.Registration</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="registration-page" class="container">
+    <form class="center" action="@Url.Action("RegistrateUser", "User")" method="POST" enctype="multipart/form-data">
+        <fieldset class="registration-form">
+            @if (result != null)
+            {
+                <div style="color:red">@result.GetMessage(culture)</div>
+            }
+
+            <div class="control-group">
+                <div class="controls">
+                    <input type="text" id="Name" name="Name" placeholder="@Language.UserName" class="input-xlarge" required="required">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <div class="controls">
+                    <input type="text" id="LastName" name="LastName" placeholder="@Language.LastName" class="input-xlarge" required="required">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- E-mail -->
+                <div class="controls">
+                    <input type="email" id="email" name="email" placeholder="@Language.Email" class="input-xlarge" required="required">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- Password -->
+                <div class="controls">
+                    <input type="password" id="password" name="password" placeholder="@Language.PassWord" class="input-xlarge" required="required">
+                </div>
+            </div>
+            <div class="control-group">
+                @Html.Label("Изображение профиля")
+                <div class="control-group">
+                    @HtmlManager.ImageUpload(required: true)
+                </div>
+            </div>
+            <br />
+            <div class="control-group">
+                <!-- Button -->
+                <div class="controls">
+                    <button class="btn btn-blue btn-large btn-block">@Language.Submit</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</section>
+@section Styles
+{
+    <style>
+        body {
+            background-color: #f5f5f5;
+        }
+    </style>
+}

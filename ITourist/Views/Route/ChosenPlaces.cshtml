@@ -1,0 +1,160 @@
+﻿@model IEnumerable<Place>
+@{
+    bool isEmpty = Model == null || !Model.Any();
+    ViewBag.Title = isEmpty ? Language.RouteEmpty : Language.ChosenPlaces;
+    Culture culture = ViewBag.Culture;
+    Layout = "~/Views/Shared/_SideBarLayout.cshtml";
+}
+@if (isEmpty)
+{
+    <div style="font-style: italic;  font-size: 150%;">@Language.TwoPlacesNeeded</div>
+    return;
+}
+@{
+    int count = Model.Count();
+}
+
+@if (count < 2)
+{
+    <section>
+        <ul>
+            @foreach (Place place in Model)
+            {
+                string name = place.GetName(culture);
+                <li class="ui-state-default">@Html.ActionLink(name, "Place", "Search", new { place.Id }, null)</li>
+            }
+        </ul>
+        <div style="font-style: italic;  font-size: 150%;">@Language.TwoPlacesNeeded</div>
+    </section>
+            return;
+}
+@{
+    string previewLink = Url.Action("Preview", "Route");
+    string saveLink = Url.Action("Save", "Route");
+}
+<section>
+    <div style="font-size:150%;font-style: italic" class="m-5">@Language.ReorderPlace</div>
+    <br />
+    <ul id="sortable" class="m-5">
+        @foreach (Place place in Model)
+        {
+            string name = place.GetName(Translatable.DefineCulture(Language.Culture.TwoLetterISOLanguageName));
+            <li class="ui-state-default">
+                @Html.ActionLink(name, "Place", "Search", new { place.Id }, null)
+                <input type="hidden" value="@place.Id" />
+            </li>
+        }
+    </ul>
+    @if (count > 3)
+    {
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="optimizeWaypoints" id="optimizeWaypoints"> @Language.OptimizeWaypoints
+            </label>
+        </div>
+    }
+    else
+    {
+        <input type="hidden" name="optimizeWaypoints" id="optimizeWaypoints" value="false" />
+    }
+
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" name="loopRoute" id="loopRoute"> @Language.LoopRoute
+        </label>
+    </div>
+    <a href="@previewLink" id="previewLink" class="btn btn-large btn-blue m-5" target="_blank">@Language.PreviewRoute</a>
+    <a href="#saveRoute" data-toggle="modal" id="saveLink" class="btn btn-large btn-blue m-5">@Language.SaveRoute</a>
+</section>
+<div class="modal hide fade" id="saveRoute" aria-hidden="true" style="display: none;">
+    <div class="modal-header">
+        <i class="icon-remove" data-dismiss="modal" aria-hidden="true"></i>
+        <h4 style="text-align: center">@Language.EnterTheNameOfTheRoute</h4>
+    </div>
+    <!--Modal Body-->
+    <div class="modal-body">
+        <form class="form-group" action="@saveLink" method="post" id="saveRouteForm" style="text-align: center">
+            <input type="text" style="width: 250px; margin-top: 12px" name="name" required="required">
+            <button type="submit" class="btn btn-large btn-blue">@Language.Submit</button>
+        </form>
+    </div>
+    <!--/Modal Body-->
+</div>
+@section Styles{
+    @Styles.Render("~/bundles/JqueryUI/Styles")
+    <style>
+        #sortable {
+            display: block;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 70%;
+        }
+
+            #sortable li {
+                margin: 5px 0;
+                padding: 5px;
+                font-size: 1.2em;
+            }
+
+            html > body #sortable li {
+                line-height: 1.2em;
+            }
+
+        .ui-state-highlight {
+            height: 1.5em;
+            line-height: 1.2em;
+            border: none;
+            background: lightskyblue;
+        }
+
+        .ui-state-default {
+            border: 1px solid #0151c3;
+            background: white;
+            cursor: move !important;
+        }
+
+            .ui-state-default a {
+                cursor: move !important;
+            }
+    </style>
+}
+@section Scripts{
+    @Scripts.Render("~/bundles/JqueryUI/Scripts")
+    <script language="javascript">
+        $(function () {
+            $("#sortable").sortable({
+                placeholder: "ui-state-highlight",
+                revert: true,
+                stop: function () {
+                    ReorderPlaces();
+                }
+            });
+            $("#sortable").disableSelection();
+            SetParams();
+            $("#loopRoute, #optimizeWaypoints").change(function () {
+                SetParams();
+            });
+        });
+
+        function SetParams() {
+            var s = '?optimizeWaypoints=' + $("#optimizeWaypoints").prop('checked')
+                + '&loopRoute=' + $("#loopRoute").prop('checked');
+            $("a#previewLink").attr('href', '@previewLink' + s);
+            $("form#saveRouteForm").attr('action', '@saveLink' + s);
+        }
+
+        function ReorderPlaces() {
+            var array = [];
+            var list = document.getElementById("sortable").getElementsByTagName("li");
+            var length = list.length;
+            for (var i = 0; i < length; i++) {
+                array.push(list[i].getElementsByTagName("input")[0].value);
+            }
+            var s = array.join(" ");
+            console.log(s);
+            window.setCookie("Places", s, 365);
+            console.log("Cookies set");
+        }
+    </script>
+}

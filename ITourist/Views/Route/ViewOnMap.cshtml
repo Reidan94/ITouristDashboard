@@ -1,0 +1,167 @@
+﻿@model IEnumerable<Place>
+@{
+    ViewBag.Title = Language.RoutePreview;
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+
+    bool optimizeWaypoints = ViewBag.OptimizeWaypoints ?? false;
+}
+<div id="map-canvas" style="float: left; width: 70%; height: 100%;"></div>
+<div id="directionsPanel" style="float: right; width: 30%; height: 100%;">
+    <ul id="sortable">
+        @{ int index = 0; }
+        @foreach (Place place in Model)
+        {
+            string coordinates = place.Latitude + "," + place.Longitude;
+            string name = place.GetName(Translatable.DefineCulture(Language.Culture.TwoLetterISOLanguageName));
+            string id = "c" + index;
+            <li>@name<input type="hidden" id='@id' value="@coordinates" /></li>
+            {
+                index++;
+            }
+        }
+    </ul>
+    <p class="total_length"><span>@Language.TotalDistance</span>:<span id="totalDisctance"></span></p>
+    <p class="total_length"><span>@Language.TotalDuration</span>:<span id="totalDuration"></span></p>
+</div>
+
+
+
+@section Styles
+{
+    <style>
+        .total_length {
+            margin: 5px;
+            font-size: 130%;
+        }
+
+        #footer {
+            display: none;
+        }
+        img {
+            max-width: none !important;
+        }
+        .adp table {
+            width: 100%;
+        }
+        .adp-warnbox {
+            display: none !important;
+            
+        } #directionsPanel {
+            font-size: 130%;
+        }
+        body {
+            padding: 0 !important;
+        }
+    </style>
+}
+@section Scripts
+{
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&language=@Language.Culture.TwoLetterISOLanguageName"></script>
+    <script>
+        
+
+        var rendererOptions = {
+            draggable: false
+        };
+        var directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);;
+        var directionsService = new google.maps.DirectionsService();
+        var map;
+
+        var australia = new google.maps.LatLng(-25.274398, 133.775136);
+
+        function initialize() {
+
+            var mapOptions = {
+                zoom: 7,
+                center: australia
+            };
+            map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+            directionsDisplay.setMap(map);
+            directionsDisplay.setPanel(document.getElementById('directionsPanel'));
+
+            google.maps.event.addListener(directionsDisplay, 'directions_changed', function () {
+                computeTotal(directionsDisplay.getDirections());
+            });
+
+            calcRoute();
+        }
+
+        function calcRoute() {
+            var array = [];
+            var list = document.getElementById("sortable").getElementsByTagName("li");
+            var length = list.length;
+            for (var i = 1; i < length - 1; i++) {
+                array.push({ location: list[i].getElementsByTagName("input")[0].value });
+            }
+            var FirstOrDefault = list[0].getElementsByTagName("input")[0].value;
+            var last = list[length - 1].getElementsByTagName("input")[0].value;
+            var optimize =  "@optimizeWaypoints" == "True" || "@optimizeWaypoints" == "true";
+            var request = {
+                origin: FirstOrDefault,
+                destination: last,
+                waypoints: array,
+                optimizeWaypoints: optimize,
+                travelMode: google.maps.TravelMode.WALKING
+            };
+            directionsService.route(request, function (response, status) {
+                if (status == google.maps.DirectionsStatus.OK) {
+                    ReorderWaypoints(response.routes[0].waypoint_order);
+                    directionsDisplay.setDirections(response);
+                }
+            });
+        }
+
+        function ReorderWaypoints(order) {
+            console.log(order);
+            var arr = [];
+            var list = document.getElementById("sortable").getElementsByTagName("li");
+            var length = list.length;
+            var i;
+            for (i = 1; i < length - 1; i++) {
+                arr.push(list[order[i - 1] + 1].innerHTML);
+            }
+            for (i = 1; i < length - 1; i++) {
+                list[i].innerHTML = arr[i - 1];
+            }
+        }
+
+        function toHHMMSS(t) {
+            var secNum = parseInt(t, 10); // don't forget the second parm
+            var hours = Math.floor(secNum / 3600);
+            var minutes = Math.floor((secNum - (hours * 3600)) / 60);
+            var seconds = secNum - (hours * 3600) - (minutes * 60);
+
+            if (hours < 10) {
+                hours = "0" + hours;
+            }
+            if (minutes < 10) {
+                minutes = "0" + minutes;
+            }
+            if (seconds < 10) {
+                seconds = "0" + seconds;
+            }
+            var time = {
+                "h": hours,
+                "m": minutes,
+                "s": seconds
+            };
+            return time;
+        };
+        function computeTotal(result) {
+            var total = 0;
+            var totaltime = 0;
+            var myroute = result.routes[0];
+            for (var i = 0; i < myroute.legs.length; i++) {
+                total += myroute.legs[i].distance.value;
+                totaltime += myroute.k = myroute.legs[i].duration.value;
+            }
+            total = total / 1000.0;
+            document.getElementById('totalDisctance').innerHTML = total + ' km';
+            var t = toHHMMSS(totaltime);
+            document.getElementById('totalDuration').innerHTML = t["h"] + " @Language.Hours " + t["m"] + " @Language.Minutes";
+   
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+}

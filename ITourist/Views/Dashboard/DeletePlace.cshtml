@@ -1,0 +1,50 @@
+﻿@model Place
+
+@{
+    ViewBag.Title = "Delete Country";
+    Layout = "~/Views/Shared/Dashboard_Layout.cshtml";
+    var region = Model.Region;
+    int regionId = region.Id;
+    var country = region.Country;
+}
+
+@if (Model == null)
+{
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header fleft">Регион не найден</h1>
+        </div>
+    </div>
+    return;
+}
+
+<div class="breadcrumbs flat">
+    @HtmlManager.DashboardBreadCrumbs(Html, country, region)
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header fleft">Удалить место</h1>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <p>Вы уверены, что хотите удалить место @Model.Translation.Ru из региона @region.Translation.Ru ? Будут удалена вся информация, связанная с этим местом (Коментарии, фотографии).</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        @HtmlManager.ProccessResultContainer(ViewBag.Result)
+        @using (Html.BeginForm("ManagePlaceDeleting", "Dashboard", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            @Html.HiddenFor(id => Model.Id)
+            <input type="hidden" name="regionId" value="@regionId" />
+            <div class="form-group">
+                @HtmlManager.SubmitButton()
+                @HtmlManager.DefaultButton(Html.ActionLink("Назад", "Place", "Dashboard", new { placeId=Model.Id }, null))
+            </div>
+        }
+    </div>
+</div>

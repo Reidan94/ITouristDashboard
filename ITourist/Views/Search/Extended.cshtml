@@ -1,0 +1,239 @@
+﻿@using Route = ITourist.Models.DataModels.Route
+@model ExtendedSearch
+@{
+    Culture culture = ViewBag.Culture;
+    ViewBag.Title = Language.ExtendedSearch;
+    User user = ViewBag.User;
+    Layout = "~/Views/Shared/_SideBarLayout.cshtml";
+}
+@helper Pagination(int max, int current, bool top = false)
+{
+    if (max <= 1)
+    {
+        <br />
+        return;
+    }
+    string styles = top ? "margin-bottom: 20px;" : "margin-top: 20px;";
+
+    <ul class="pagination" style="@(styles)">
+        @if (current == 1)
+        {
+            <li class="disabled"><a href="#">&larr;</a></li>
+        }
+        else
+        {
+            <li onclick="setPage('@(current - 1)')"><a href="#">&larr;</a></li>
+        }
+        @{
+            int l = current - 4;
+            int r = current + 4;
+            bool left = l > 1;
+            if (left)
+            {
+                <li onclick="setPage('1')"><a href="#">1</a></li>
+                <li class="disabled"><a href="#">...</a></li>
+            }
+            bool right = max > r;
+        }
+        @for (int i = left ? l : 1; i <= (right ? r : max); i++)
+        {
+            if (i == current)
+            {
+                <li class="active" onclick="setPage('@(i)')"><a href="#">@i</a></li>
+            }
+            else
+            {
+                <li onclick="setPage('@(i)')"><a href="#">@i</a></li>
+            }
+        }
+        @{
+            if (right)
+            {
+                <li class="disabled"><a href="#">...</a></li>
+                <li onclick="setPage('@(max)')"><a href="#">@max</a></li>
+            }
+        }
+        @if (current == max)
+        {
+            <li class="disabled"><a href="#">&rarr;</a></li>
+        }
+        else
+        {
+            <li><a href="#" onclick="setPage('@(current + 1)')">&rarr;</a></li>
+        }
+    </ul>
+}
+@using (Html.BeginForm("Extended", "Search", FormMethod.Get, new { @id = "e-search" }))
+{
+
+    <div>
+        <h4 style="float: left">@Language.SearchFor</h4>
+        <select name="CurrentSearchItem" id="CurrentSearchItem">
+            @foreach (var item in Model.SearchItems)
+            {
+                string res = item.Id == Model.CurrentSearchItem ? "selected" : null;
+                <option value="@item.Id" selected="@(res)">@item.GetName(culture)</option>
+            }
+        </select>
+    </div>
+    <div id="places">
+        <h4>@Language.ChooseType</h4>
+        <select name="CurrentPlaceType" id="CurrentPlaceType">
+            @foreach (var item in Model.SearchPlaceTypes)
+            {
+                string res = item.Id == Model.CurrentPlaceType ? "selected" : null;
+                <option value="@item.Id" selected="@(res)">@item.GetName(culture).ToLower()</option>
+            }
+        </select>
+    </div>
+    <div>
+        <h4>@Language.OrderBy </h4>
+        <select name="CurrentSearchOrder" id="CurrentSearchOrder">
+            @foreach (var item in Model.SearchOrders)
+            {
+                string res = item.Id == Model.CurrentSearchOrder ? "selected" : null;
+                <option value="@item.Id" selected="@(res)">@item.GetName(culture)</option>
+            }
+        </select>
+    </div>
+    <div>
+        <h4>@Language.NameShouldContain</h4>
+        @Html.TextBoxFor(model => model.Name)
+        @Html.HiddenFor(model => model.Page)
+        @Html.HiddenFor(model => model.NeedToSearch)
+    </div>
+    <input type="button" onclick="setPage(1);" value="@Language.Submit" class="btn btn-blue btn-large" />
+}
+<br />
+@Pagination(ViewBag.Max, Model.Page,true)
+@if (Model.Countries != null)
+{
+    @(Model.Countries.Any() ? HtmlManager.CountryList(Url, Model.Countries, culture) : HtmlManager.SearchResult())
+}
+else if (Model.Regions != null)
+{
+    @(Model.Regions.Any() ? HtmlManager.RegionList(Url, Model.Regions, culture) : HtmlManager.SearchResult())
+}
+else if (Model.Places != null)
+{
+    if (Model.Places.Any())
+    {
+        Place lastPlace = Model.Places.Last();
+        <ul class="ilist">
+            @foreach (var place in Model.Places)
+            {
+                <li>
+                    <div class="media">
+                        <div class="pull-left">
+                            <a class="magnifier" href="@HtmlManager.DefineImagePath(place.Image)">
+                                <div class="">
+                                    @HtmlManager.Image(place.Image + "?w=200", place.GetName(culture))
+                                </div>
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <a href="@Url.Action("Place", "Search", new {id = place.Id})">
+                                <span>@place.GetName(culture)</span>
+                            </a>
+                            <br />
+                        </div>
+                    </div>
+                    @if (place != lastPlace)
+                    {
+                        <hr />
+                    }
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        @HtmlManager.SearchResult()
+    }
+}
+else if (Model.Routes != null)
+{
+    if (Model.Routes.Any())
+    {
+        <ul class="routes-list">
+            @foreach (Route route in Model.Routes)
+            {
+                <li class="m-5 ">
+                    <div class="route-time">
+                        <i class="icon-user"> </i>@route.Rating
+                        <i class="icon-clock-o"> </i>@route.FormatAverageTime(culture)
+                    </div>
+                    <h4>@route.GetName(culture)</h4>
+                    <div class="checkpoint-list">
+                        @foreach (var checkPoint in route.CheckPoints)
+                        {
+                            <div><i class="icon-angle-right"></i>@Html.ActionLink(checkPoint.Place.GetName(culture), "Place", "Search", new { id = checkPoint.PlaceId }, new { @target = "_blank" })</div>
+                        }
+                    </div>
+                    <a class="btn btn-blue m-5" href='@Url.Action("ViewOnMap", "Route", new {id = route.Id})' target=" _blank">@Language.ViewOnMap</a>
+                    @if (!user.HasRouteInBookmarks(route.Id))
+                    {
+                        <button class="btn btn-blue m-5" onclick="addtoboomarks(this, '@Url.Action("AddToBookmarks", "Route", new {routeId = route.Id})'); ">@Language.AddToBookmarks</button>
+                    }
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        @HtmlManager.SearchResult()
+    }
+}
+@Pagination(ViewBag.Max, Model.Page)
+@section Styles
+{
+    <style>
+        form input[type="text"], select {
+            padding: 4px 6px;
+            border: 1px solid #cccccc;
+            min-height: 5px;
+            margin-top: -4px;
+            float: none;
+        }
+
+        form select {
+            width: 290px;
+        }
+
+        form input[type="text"] {
+            width: 276px;
+        }
+
+        #places {
+            display: none;
+        }
+
+        form h4 {
+            display: inline;
+            margin-right: 5px;
+        }
+    </style>
+}
+@section Scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#NeedToSearch").val("true");
+            if ($("#CurrentSearchItem").val() == 2) {
+                $("#places").show();
+            }
+            $("#CurrentSearchItem").change(function () {
+                if ($("#CurrentSearchItem").val() == 2) {
+                    $("#places").show('normal');
+                } else {
+                    $("#places").hide('normal');
+                }
+            });
+        });
+
+        function setPage(page) {
+            $("#Page").val(page);
+            $("#e-search").submit();
+        }
+    </script>
+}

@@ -1,0 +1,55 @@
+﻿@model Place
+
+@{
+
+    ViewBag.Title = "Редактирование места";
+    Layout = "~/Views/Shared/Dashboard_Layout.cshtml";
+    if (Model == null)
+    {
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header fleft">Место не найдено</h1>
+        </div>
+    </div>
+        return;
+    }
+    var region = Model.Region;
+    var country = region.Country;
+}
+
+<div class="breadcrumbs flat">
+    @HtmlManager.DashboardBreadCrumbs(Html, country, region)
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header fleft">Редактировать место</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        @HtmlManager.ProccessResultContainer(ViewBag.Result)
+        @using (Html.BeginForm("ManagePlaceEditing", "Dashboard", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            @Html.Hidden("Id", Model.Id)
+            @Html.Hidden("RegionId", Model.RegionId)
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true)
+                @HtmlManager.InputText("Название (EN)", "Translation.En", "Place", required: true,value:Model.Translation.En)
+                @HtmlManager.InputText("Название (RU)", "Translation.Ru", "Место", required: true,value:Model.Translation.Ru)
+                @HtmlManager.TextArea("Описание (EN)", "Translation1.En", "Description", required: true,value:Model.Translation1.En)
+                @HtmlManager.TextArea("Описание (RU)", "Translation1.Ru", "Описание", required: true,value:Model.Translation1.Ru)
+                @HtmlManager.DropDownListDashboard(Html, "Тип", "TypeId", PlaceTypes.GetAllPlaceTypes(), textField: "Translation.Ru",selectedValue:Model.TypeId)
+                @HtmlManager.InputNumber("Широта", "Latitude", 0.0f, -90.0f, 90.0f, step: 0.000001f, required: true, value: Model.X)
+                @HtmlManager.InputNumber("Долгота", "Longitude", 0.0f, -180.0f, 180.0f, step: 0.000001f, required: true, value: Model.Y)
+                @HtmlManager.DashboardImageUpload("Изображение",Model.Image)
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @HtmlManager.SubmitButton()
+                        @HtmlManager.DefaultButton(Html.ActionLink("Назад", "Place", "Dashboard", new { placeId = Model.Id }, null))
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

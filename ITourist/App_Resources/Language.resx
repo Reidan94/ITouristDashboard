@@ -1,0 +1,678 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="AddPlaceToTheRoute" xml:space="preserve">
+    <value>Add to the route</value>
+  </data>
+  <data name="AllPhotos" xml:space="preserve">
+    <value>All photos</value>
+  </data>
+  <data name="AllRightsReserved" xml:space="preserve">
+    <value>All rights reserved</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="CheckPointAdded" xml:space="preserve">
+    <value>Chechpoint added successfully</value>
+  </data>
+  <data name="CheckPointNotExists" xml:space="preserve">
+    <value>Such checkpoint doesn't exists</value>
+  </data>
+  <data name="ChooseCountry" xml:space="preserve">
+    <value>Choose сountry</value>
+  </data>
+  <data name="ChosenPlaces" xml:space="preserve">
+    <value>Chosen places</value>
+  </data>
+  <data name="ChooseRegion" xml:space="preserve">
+    <value>Choose region</value>
+  </data>
+  <data name="CityOrRegion" xml:space="preserve">
+    <value>City/region</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="ConfirmRoute" xml:space="preserve">
+    <value>Confirm route</value>
+  </data>
+  <data name="Contacts" xml:space="preserve">
+    <value>Contacts</value>
+  </data>
+  <data name="ControlPanel" xml:space="preserve">
+    <value>Control panel</value>
+  </data>
+  <data name="Countries" xml:space="preserve">
+    <value>Countries</value>
+  </data>
+  <data name="CountriesNotMatched" xml:space="preserve">
+    <value>Countries do not matched</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="CountryNotExists" xml:space="preserve">
+    <value>Such country doesn't exist</value>
+  </data>
+  <data name="CreateRoute" xml:space="preserve">
+    <value>Create route</value>
+  </data>
+  <data name="DefaultRouteName" xml:space="preserve">
+    <value>My route</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="DoNotSave" xml:space="preserve">
+    <value>Do not save</value>
+  </data>
+  <data name="DoYouWantToSaveRoute" xml:space="preserve">
+    <value>Save to 'My routes'?</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EmailConfirmation" xml:space="preserve">
+    <value>Registration passed  successfully. To confirm registration visit your mail!</value>
+  </data>
+  <data name="Enter" xml:space="preserve">
+    <value>Enter</value>
+  </data>
+  <data name="EnterTheNameOfTheRoute" xml:space="preserve">
+    <value>Enter name of the route</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="Experience" xml:space="preserve">
+    <value>Experience</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>Female</value>
+  </data>
+  <data name="FiveStarOfFive" xml:space="preserve">
+    <value>five star of five</value>
+  </data>
+  <data name="FourStarOfFive" xml:space="preserve">
+    <value>four star of five</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="Hours" xml:space="preserve">
+    <value>h</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Image</value>
+  </data>
+  <data name="InvalidCountryID" xml:space="preserve">
+    <value>Invalid country ID</value>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>Invalid email. User with this email already exists</value>
+  </data>
+  <data name="InvalidPassword" xml:space="preserve">
+    <value>Invalid password</value>
+  </data>
+  <data name="InvalidPlaceID" xml:space="preserve">
+    <value>Invalid place ID value</value>
+  </data>
+  <data name="InvalidToken" xml:space="preserve">
+    <value>Invalid token</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="Like" xml:space="preserve">
+    <value>Like</value>
+  </data>
+  <data name="Likes" xml:space="preserve">
+    <value>Likes</value>
+  </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>Log in</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>Male</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>m</value>
+  </data>
+  <data name="NoRegions" xml:space="preserve">
+    <value>There is no regions in this country</value>
+  </data>
+  <data name="NoRoutes" xml:space="preserve">
+    <value>No routes</value>
+  </data>
+  <data name="NoSuchEmail" xml:space="preserve">
+    <value>Sorry, we have not found such user with such email. Try again</value>
+  </data>
+  <data name="NotAllFieldsAreFilled" xml:space="preserve">
+    <value>Not all fields are filled</value>
+  </data>
+  <data name="OneStarOfFive" xml:space="preserve">
+    <value>one star of five</value>
+  </data>
+  <data name="PassWord" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PasswordsAreNotEqual" xml:space="preserve">
+    <value>Passwords do not match</value>
+  </data>
+  <data name="PlaceIsAlreadyInTheRoute" xml:space="preserve">
+    <value>Place is already in the route</value>
+  </data>
+  <data name="PlaceNotExist" xml:space="preserve">
+    <value>Plase does not exist</value>
+  </data>
+  <data name="PlaceRemovedSuccessfully" xml:space="preserve">
+    <value>Place was removed successfully</value>
+  </data>
+  <data name="PlaceWasAddedToTheRoute" xml:space="preserve">
+    <value>Place was successfully added to the route</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="Rating" xml:space="preserve">
+    <value>Rating</value>
+  </data>
+  <data name="RecomendedDestionations" xml:space="preserve">
+    <value>Recomended Destinations</value>
+  </data>
+  <data name="Recommendations" xml:space="preserve">
+    <value>Recommendations</value>
+  </data>
+  <data name="RegionAddedSuccessfully" xml:space="preserve">
+    <value>Region added successfully</value>
+  </data>
+  <data name="RegionDeletedSuccessfully" xml:space="preserve">
+    <value>Region was deleted successfully</value>
+  </data>
+  <data name="RegionEditedSuccessfully" xml:space="preserve">
+    <value>Region info was updated successfully</value>
+  </data>
+  <data name="RegionNotExist" xml:space="preserve">
+    <value>Such region does not exist</value>
+  </data>
+  <data name="RegionOfTheRoute" xml:space="preserve">
+    <value>Region Of The Route</value>
+  </data>
+  <data name="Registrate" xml:space="preserve">
+    <value>Registrate</value>
+  </data>
+  <data name="Registration" xml:space="preserve">
+    <value>Registration</value>
+  </data>
+  <data name="RegistrationCompletedSuccesfully" xml:space="preserve">
+    <value>Registrtion completed! Confirm your registration via email.</value>
+  </data>
+  <data name="RegistrationConfirmed" xml:space="preserve">
+    <value>Registration completed succesfully!</value>
+  </data>
+  <data name="RegistrationMessage" xml:space="preserve">
+    <value>You've just registrated on service ITourist. Registration passed succesfully. Your password In order to confirm your regstration follow this link please : {0}.</value>
+  </data>
+  <data name="RegistrationTopic" xml:space="preserve">
+    <value>Registration</value>
+  </data>
+  <data name="RemovePlaceFromRoute" xml:space="preserve">
+    <value>Remove from the route</value>
+  </data>
+  <data name="RemoveRoute" xml:space="preserve">
+    <value>Remove route</value>
+  </data>
+  <data name="RepeatPassword" xml:space="preserve">
+    <value>Repeat Password, please</value>
+  </data>
+  <data name="RouteCreated" xml:space="preserve">
+    <value>Route was created successfully</value>
+  </data>
+  <data name="RouteCreating" xml:space="preserve">
+    <value>Route creating</value>
+  </data>
+  <data name="RouteEmpty" xml:space="preserve">
+    <value>Route is empty</value>
+  </data>
+  <data name="RouteError" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="RouteRandomName" xml:space="preserve">
+    <value>My_Route</value>
+  </data>
+  <data name="Routes" xml:space="preserve">
+    <value>Routes</value>
+  </data>
+  <data name="RouteWasAdded" xml:space="preserve">
+    <value>Route was succesfully added to your routes.</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="Sex" xml:space="preserve">
+    <value>Sex</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SubmitRoute" xml:space="preserve">
+    <value>Submit route</value>
+  </data>
+  <data name="ThatAreWorthSeeing" xml:space="preserve">
+    <value>that are worth seeing</value>
+  </data>
+  <data name="ThereArePlentyOfPlaces" xml:space="preserve">
+    <value>THERE ARE PLENTY OF PLACES</value>
+  </data>
+  <data name="ThreeStarOfFive" xml:space="preserve">
+    <value>three star of five</value>
+  </data>
+  <data name="TopDestinations" xml:space="preserve">
+    <value>Top Destinations</value>
+  </data>
+  <data name="TotalDistance" xml:space="preserve">
+    <value>Total distance</value>
+  </data>
+  <data name="TotalDuration" xml:space="preserve">
+    <value>Total duration</value>
+  </data>
+  <data name="TwoStarOfFive" xml:space="preserve">
+    <value>two star of five</value>
+  </data>
+  <data name="UnconfirmedRoute" xml:space="preserve">
+    <value>Unconirmed Route</value>
+  </data>
+  <data name="UserAddedSuccessfully" xml:space="preserve">
+    <value>User was added successfully</value>
+  </data>
+  <data name="UserAlreadyExists" xml:space="preserve">
+    <value>User with such email already exists</value>
+  </data>
+  <data name="UserDeletedSuccessfully" xml:space="preserve">
+    <value>User was deleted successfully</value>
+  </data>
+  <data name="UserEditedSuccessfully" xml:space="preserve">
+    <value>User info updated successfully</value>
+  </data>
+  <data name="UserEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="UserNotExists" xml:space="preserve">
+    <value>Such user does not exist</value>
+  </data>
+  <data name="ViewOnMap" xml:space="preserve">
+    <value>View on map</value>
+  </data>
+  <data name="WatchMyRoutes" xml:space="preserve">
+    <value>Watch my routes</value>
+  </data>
+  <data name="WatchRoute" xml:space="preserve">
+    <value>Watch current  route</value>
+  </data>
+  <data name="YoHaveJustAddedToYourRoutePlaceFromRegion" xml:space="preserve">
+    <value>You have just added to your route place from region {0}. You can add places to this route from the appropriate region only! </value>
+  </data>
+  <data name="YouTryToAddPlaceFromOtherRegionToYourRoute" xml:space="preserve">
+    <value>You try to add place from other region to your route.</value>
+  </data>
+  <data name="AddRegion" xml:space="preserve">
+    <value>Add region</value>
+  </data>
+  <data name="NameEn" xml:space="preserve">
+    <value>Name in English</value>
+  </data>
+  <data name="NameRu" xml:space="preserve">
+    <value>Name in Russian</value>
+  </data>
+  <data name="UserLogedIn" xml:space="preserve">
+    <value>You loged in successfully</value>
+  </data>
+  <data name="NoPlaces" xml:space="preserve">
+    <value>No places</value>
+  </data>
+  <data name="NothingFound" xml:space="preserve">
+    <value>Nothing found on request "{0}"</value>
+  </data>
+  <data name="SearchCountry" xml:space="preserve">
+    <value>Search country...</value>
+  </data>
+  <data name="SearchPlace" xml:space="preserve">
+    <value>Search place...</value>
+  </data>
+  <data name="SearchRegion" xml:space="preserve">
+    <value>Search region...</value>
+  </data>
+  <data name="SearchResults" xml:space="preserve">
+    <value>Search results on request "{0}"</value>
+  </data>
+  <data name="LogInWith" xml:space="preserve">
+    <value>Log in with:</value>
+  </data>
+  <data name="SearchRoute" xml:space="preserve">
+    <value>Search route...</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="ConfirmRegistration" xml:space="preserve">
+    <value>Confirm registration</value>
+  </data>
+  <data name="RegistrationConfirmation" xml:space="preserve">
+    <value>Registration confirmation</value>
+  </data>
+  <data name="Choose" xml:space="preserve">
+    <value>Choose</value>
+  </data>
+  <data name="CreateYourRoute" xml:space="preserve">
+    <value>Create route</value>
+  </data>
+  <data name="OrChooseExisting" xml:space="preserve">
+    <value>or choose existing one</value>
+  </data>
+  <data name="Travel" xml:space="preserve">
+    <value>Travel!</value>
+  </data>
+  <data name="WhereYouWantToGo" xml:space="preserve">
+    <value>where you want to go</value>
+  </data>
+  <data name="TwoPlacesNeeded" xml:space="preserve">
+    <value>You need at least two places to create a route</value>
+  </data>
+  <data name="LoopRoute" xml:space="preserve">
+    <value>Finish route at the start place</value>
+  </data>
+  <data name="OptimizeWaypoints" xml:space="preserve">
+    <value>Optimize waypoints</value>
+  </data>
+  <data name="SaveRoute" xml:space="preserve">
+    <value>Save route</value>
+  </data>
+  <data name="ViewSelectedPlaces" xml:space="preserve">
+    <value>View selected places</value>
+  </data>
+  <data name="PageNotFound" xml:space="preserve">
+    <value>404, Page not found</value>
+  </data>
+  <data name="RouteNotFound" xml:space="preserve">
+    <value>Route not found</value>
+  </data>
+  <data name="ToHome" xml:space="preserve">
+    <value>Go to homepage</value>
+  </data>
+  <data name="Bookmarks" xml:space="preserve">
+    <value>Bookmarks</value>
+  </data>
+  <data name="GoToBookmarks" xml:space="preserve">
+    <value>Go to bookmarks</value>
+  </data>
+  <data name="PreviewRoute" xml:space="preserve">
+    <value>Preview route</value>
+  </data>
+  <data name="ReorderPlace" xml:space="preserve">
+    <value>Reorder places below in the order you need</value>
+  </data>
+  <data name="RoutePreview" xml:space="preserve">
+    <value>Route preview</value>
+  </data>
+  <data name="RouteSaved" xml:space="preserve">
+    <value>Route saved</value>
+  </data>
+  <data name="YouHaveNoBookmarks" xml:space="preserve">
+    <value>You have not saved any routes to your bookmarks yet</value>
+  </data>
+  <data name="UseMobileAppToPassRoutes" xml:space="preserve">
+    <value>You can always pass these routes with your mobile iTourist app</value>
+  </data>
+  <data name="AveragePassTime" xml:space="preserve">
+    <value>Average  time of passing:</value>
+  </data>
+  <data name="CommentEmpty" xml:space="preserve">
+    <value>Comment cannot be empty</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="LeaveComment" xml:space="preserve">
+    <value>Leave a comment</value>
+  </data>
+  <data name="Photos" xml:space="preserve">
+    <value>Photos</value>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Sign in</value>
+  </data>
+  <data name="ToLeaveComment" xml:space="preserve">
+    <value> to live a comment</value>
+  </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>User not found</value>
+  </data>
+  <data name="AddToBookmarks" xml:space="preserve">
+    <value>Add to bookmarks</value>
+  </data>
+  <data name="AreYouSure" xml:space="preserve">
+    <value>Are you sure?</value>
+  </data>
+  <data name="EnterRouteTranslations" xml:space="preserve">
+    <value>Enter translations</value>
+  </data>
+  <data name="MakePublic" xml:space="preserve">
+    <value>Make public</value>
+  </data>
+  <data name="PopularPlaces" xml:space="preserve">
+    <value>Popular places</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="RemoveCompletely" xml:space="preserve">
+    <value>Remove completely</value>
+  </data>
+  <data name="RemovePublicNotification" xml:space="preserve">
+    <value>This route is public. If you remove it, it will be removed from your bookmarks and from bookmarks of all other users who have this route in bookmarks. You will not be able to restore it.</value>
+  </data>
+  <data name="Categories" xml:space="preserve">
+    <value>Categories</value>
+  </data>
+  <data name="ChooseType" xml:space="preserve">
+    <value>Choose type:</value>
+  </data>
+  <data name="ExtendedSearch" xml:space="preserve">
+    <value>Extended search</value>
+  </data>
+  <data name="NameShouldContain" xml:space="preserve">
+    <value>Name should contain: </value>
+  </data>
+  <data name="OrderBy" xml:space="preserve">
+    <value>Order by: </value>
+  </data>
+  <data name="Places" xml:space="preserve">
+    <value>Places</value>
+  </data>
+  <data name="Regions" xml:space="preserve">
+    <value>Regions</value>
+  </data>
+  <data name="SearchFor" xml:space="preserve">
+    <value>Search: </value>
+  </data>
+  <data name="SearchFoundNothing" xml:space="preserve">
+    <value>Nothing found</value>
+  </data>
+  <data name="Dima" xml:space="preserve">
+    <value>Dmitriy Bekuzarov</value>
+  </data>
+  <data name="ITouristDescription" xml:space="preserve">
+    <value>«iTourist» is a very convenient, powerful service designed for tourists. This is a useful guide when you are traveling to a foreign country. You can browse popular places, create routes or choose existing ones. You can also share your routes with other tourists. Travel, gain experience and become the most adventurous person in the world!</value>
+  </data>
+  <data name="Kostya" xml:space="preserve">
+    <value>Konstantin Chikerenda</value>
+  </data>
+  <data name="Lesha" xml:space="preserve">
+    <value>Alexey Spodarets</value>
+  </data>
+  <data name="Masha" xml:space="preserve">
+    <value>Maria Voytenko</value>
+  </data>
+  <data name="Maxim" xml:space="preserve">
+    <value>Maxim Erokhin</value>
+  </data>
+  <data name="MobileApps" xml:space="preserve">
+    <value>iTourist for mobile</value>
+  </data>
+  <data name="OurTeam" xml:space="preserve">
+    <value>Our team</value>
+  </data>
+  <data name="Reidan" xml:space="preserve">
+    <value>Reidan Abdi</value>
+  </data>
+  <data name="Vova" xml:space="preserve">
+    <value>Vladimir Gritsenko</value>
+  </data>
+  <data name="WhatIsITourist" xml:space="preserve">
+    <value>What is «iTourist»?</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Dashboard</value>
+  </data>
+</root>

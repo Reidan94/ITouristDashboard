@@ -1,0 +1,67 @@
+﻿@model Country
+
+@{
+    ViewBag.Title = "Редактирование страны";
+    Layout = "~/Views/Shared/Dashboard_Layout.cshtml";
+    if (Model == null)
+    {
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header fleft">Страна не найдена</h1>
+            </div>
+        </div>
+        return;
+    }
+    var nameRus = Model.Translation.Ru;
+    var nameEn = Model.Translation.En;
+}
+
+<div class="breadcrumbs flat">
+    @HtmlManager.DashboardBreadCrumbs(Html, Model, HtmlManager.EditLink(Html, Model))
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header fleft">Редактировать страну</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        @HtmlManager.ProccessResultContainer(ViewBag.Result)
+        @using (Html.BeginForm("ManageCountryEditing", "Dashboard", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true)
+
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="Name">Название Рус.</label>
+                    <div class="col-md-2">
+                        @Html.HiddenFor(id => Model.Id)
+                        <input class="form-control" id="Name" name="nameRus" type="text" placeholder="Название" required="required" value="@nameRus">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="Name">Название En</label>
+                    <div class="col-md-2">
+                        @Html.HiddenFor(id => Model.Id)
+                        <input class="form-control" id="Name" name="nameEn" type="text" placeholder="Название" required="required" value="@nameEn">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2">Изображение</label>
+                    <div class="col-md-2">
+                        @HtmlManager.ImageUpload(Model.Image, nameRus)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @HtmlManager.SubmitButton()
+                        @HtmlManager.DefaultButton(Html.ActionLink("Назад", "Country", "Dashboard", new { id = Model.Id }, null))
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

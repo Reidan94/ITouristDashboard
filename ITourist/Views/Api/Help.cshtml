@@ -1,0 +1,555 @@
+﻿@{
+    ViewBag.Title = "Help";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    string clearPath = "";
+    string path = "";
+    if (Context.Request != null && Context.Request.Url != null)
+    {
+        clearPath = Context.Request.Url.GetLeftPart(UriPartial.Authority);
+        path = clearPath + "/api/";
+    }
+    const string token = "?token=52249ed0f060d93f0376a87f7474274b";
+}
+@{
+
+}
+@helper Structure(string title, Tuple<string, string, string, bool>[] parameters)
+{
+    <br />
+    <h3>@title</h3>
+    if (parameters.Any(x => x.Item4))
+    {
+        <p>Параметры, отмеченные знаком <i class="icon-check-sign"> </i> выводятся только если параметр <i>details</i> задан как <i>true</i></p>
+    }
+
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Поле</th>
+                <th>Тип</th>
+                <th>Значение по умолчанию</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var parameter in parameters)
+            {
+                <tr>
+                    <td>
+                        @if (parameter.Item4)
+                        {
+                            <i class="icon-check-sign"> </i>
+                        }
+                        @parameter.Item1
+                    </td>
+                    <td>@parameter.Item2</td>
+                    <td>@parameter.Item3</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+@helper Panel(string title, string description, IEnumerable<Tuple<string, string, string>> parameters, params string[] queries)
+{
+    <br />
+    <h4 style="text-decoration: underline">@title</h4>
+    <p><b>Описание: </b>@description</p>
+    <table class="table table-striped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Параметр</th>
+                <th>Значение по умолчанию</th>
+                <th>Описание</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var parameter in parameters)
+            {
+                <tr>
+                    <td>@parameter.Item1</td>
+                    <td>@parameter.Item2</td>
+                    <td>@parameter.Item3</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <b>Примеры запросов: </b>
+    foreach (string s in queries)
+    {
+        <p><pre>@s</pre></p>
+    }
+}
+<section>
+    <div class="container">
+        <h2>ITourist API</h2>
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#common" data-toggle="tab">Общее</a>
+            </li>
+            <li>
+                <a href="#coutries" data-toggle="tab">Страны</a>
+            </li>
+            <li>
+                <a href="#regions" data-toggle="tab">Регионы</a>
+            </li>
+            <li>
+                <a href="#places" data-toggle="tab">Места</a>
+            </li>
+            <li>
+                <a href="#routes" data-toggle="tab">Маршруты</a>
+            </li>
+            <li>
+                <a href="#users" data-toggle="tab">Пользователи</a>
+            </li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="common">
+                <h3>Changelog</h3>
+                <h4>v0.3</h4>
+                <ul>
+                    <li>Добавлен рейтинг стран, регионов и мест</li>
+                    <li>Добавлена возможность сортировки стран, регионов, мест и публичных маршрутов по названию и рейтингу</li>
+                    <li>Информация о странах, регионах, местах, машрутах и закладках по умолчанию выводится в сокращенном виде для уменьшения трафика</li>
+                </ul>
+                <h4>v0.2</h4>
+                <ul>
+                    <li>Добавлена аутентификация через социальные сети</li>
+                    <li>Добавлен подсчет среднего времени прохождения маршрута и его контрольных точек</li>
+                </ul>
+                <h3>Общие параметры для всех запросов</h3>
+
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Параметр</th>
+                            <th>Значение по умолчанию</th>
+                            <th>Описание</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>token</td>
+                            <td> </td>
+                            <td>Токен для доступа к API. Одинаковый для всех запросов (@token.Substring(7)). Является обязательным параметром</td>
+                        </tr>
+                        <tr>
+                            <td>culture</td>
+                            <td>en</td>
+                            <td>Язык. Может передан в виде числа или строки (0 или en - английский, 1 или ru - русский)</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+                <h3>Результат запроса</h3>
+                <b>Описание: </b>Все запросы, кроме тех, что возращают информацию из БД, возвращают результат запроса (см. ниже)
+                @Structure("", new[]
+                {
+                    new Tuple<string, string, string,bool>("Succeeded", "Bool", "True, если запрос выполнился успешно; false в противном случае",false),
+                    new Tuple<string, string, string,bool>("Message","String","Сообщение, содержащее информацию о результате запроса",false),
+                    new Tuple<string, string, string,bool>("AffectedObjectId", "Nullable<Int>","Идентификатор объекта, который был создан в процессе запроса (только для запросов, создающих что-либо, для остальных запросов null)",false)
+                })
+                @{
+                    string temp1 = "/Images/Countries/Australia.png";
+                    string temp2 = clearPath + temp1;
+                }
+                <h3>Опции</h3>
+                @Panel("Уменьшение изображений", "Для уменьшение изображения для облегчения трафика к URL  изображения необходимо дописать следующие параметры", new[]
+            {
+                new Tuple<string, string, string>("w", "original", "Задает ширину изображения"),
+                new Tuple<string, string, string>("h","original","Задает высоту изображения")
+            },
+                 temp2 + "?w=100",
+                 temp2 + "?h=100")
+                <br />
+  
+                <h4 style="text-decoration: underline">Получение полной информации</h4>
+                <p>
+                    <b>Описание: </b> Некоторые объекты имеют поля, отмеченные знаком <i class="icon-check-sign"></i>,
+                    которые отображаются только если параметр <i>details</i> задан как <i>true</i>.
+                    При отсутствии таких скрытых полей передавать данный параметр не имеет смысла
+                </p>
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Параметр</th>
+                            <th>Значение по умолчанию</th>
+                            <th>Описание</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>details</td>
+                            <td>false</td>
+                            <td>false - скрытые поля не отображаются, true - отображаются</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br />
+            </div>
+            <div class="tab-pane fade" id="coutries">
+                @Structure("Структура страны", new[]
+            {
+                new Tuple<string, string, string,bool>("Id", "Int", "Идентификатор страны",false),
+                new Tuple<string, string, string,bool>("Name","String","Название страны",false),
+                new Tuple<string, string, string,bool>("Rating","Double","Рейтинг страны",false),
+                new Tuple<string, string, string,bool>("Image", "String","Адрес изображения (флаг страны)",false)
+            })
+                <h3>Запросы</h3>
+                @{
+                    temp1 = "GetCountries";
+                    temp2 = path + temp1 + token;
+                }
+                @Panel(temp1, "Возвращает список стран", new[]
+            {
+                new Tuple<string, string, string>("offset", "0", "Определяет смещение от начала списка возвращаемых стран"),
+                new Tuple<string, string, string>("count","20","Определяет количество возвращаемых стран, считая от смещения"),
+                new Tuple<string, string, string>("search", "null","Регистронезависимый фильтр по названию страны")
+            },
+                temp2,
+                temp2 + "&offset=5",
+                temp2 + "&offset=0&count=100",
+                temp2 + "&search=Па&culture=1",
+                temp2 + "&offset=2&count=5&search=Па&culture=ru")
+                @{
+                    temp1 = "GetCountry";
+                    temp2 = path + temp1 + token;
+                }
+
+                @Panel(temp1, "Возвращает страну по идентификатору", new[]
+            {
+                new Tuple<string, string, string>("id", "", "Идентификатор страны (поле Id). Является обязательным параметром")
+            },
+                temp2 + "&id=5",
+                temp2 + "&id=5&culture=ru")
+            </div>
+            <div id="regions" class="tab-pane fade">
+                @Structure("Структура региона", new[]
+            {
+                new Tuple<string, string, string,bool>("Id", "Int", "Идентификатор региона",false),
+                new Tuple<string, string, string,bool>("Name","String","Название региона",false),
+                new Tuple<string, string, string,bool>("Rating","Double","Рейтинг региона",false),
+                new Tuple<string, string, string,bool>("CountryId","String","Идентификатор страны, к которой принадлежит регион",true),
+                new Tuple<string, string, string,bool>("CountryName","String","Название страны, к которой принадлежит регион",true),
+                new Tuple<string, string, string,bool>("Image", "String","Адрес изображения региона",true)
+            })
+                <h3>Запросы</h3>
+                @{
+                    temp1 = "GetRegions";
+                    temp2 = path + temp1 + token;
+                }
+                @Panel(temp1, "Возвращает список регионов", new[]
+            {
+                new Tuple<string, string, string>("countryId", "null", "Идентификатор страны, регионы которой необходимо вернуть. Если этот параметр не задан, запрос вернет все регионы"),
+                new Tuple<string, string, string>("offset", "0", "Определяет смещение от начала списка возвращаемых регионов"),
+                new Tuple<string, string, string>("count","20","Определяет количество возвращаемых регионов, считая от смещения"),
+                new Tuple<string, string, string>("search", "null","Регистронезависимый фильтр по названию региона")
+            },
+                temp2,
+                temp2 + "&offset=3",
+                temp2 + "&offset=0&count=100&details=true",
+                temp2 + "&countryId=186&culture=1",
+                temp2 + "&search=Ло&culture=ru")
+                @{
+                    temp1 = "GetRegion";
+                    temp2 = path + temp1 + token;
+                }
+
+                @Panel(temp1, "Возвращает регион по идентификатору", new[]
+            {
+                new Tuple<string, string, string>("id", "", "Идентификатор региона (поле Id). Является обязательным параметром")
+            },
+                temp2 + "&id=13",
+                temp2 + "&id=13&culture=ru",
+                temp2 + "&id=13&culture=ru&details=true")
+
+            </div>
+            <div id="places" class="tab-pane fade">
+                @Structure("Структура места", new[]
+            {
+                new Tuple<string, string, string,bool>("Id", "Int", "Идентификатор места",false),
+                new Tuple<string, string, string,bool>("Name","String","Название места",false),
+                new Tuple<string, string, string,bool>("Rating","Double","Рейтинг места",false),
+                new Tuple<string, string, string,bool>("X","Double","Широта. Если число положительное, то северная, если отрицательное, то южная",false),
+                new Tuple<string, string, string,bool>("Y","Double","Долгота. Если число положительное, то восточная, если отрицательное, то западная",false),
+                new Tuple<string, string, string,bool>("Image", "String","Адрес изображения места",false),
+                new Tuple<string, string, string,bool>("Type","String","Тип, к которому принадлежит место",true),
+                new Tuple<string, string, string,bool>("RegionId","String","Идентификатор региона, к которому принадлежит место",true),
+                new Tuple<string, string, string,bool>("RegionName","String","Название региона, к которому принадлежит место",true),
+                new Tuple<string, string, string,bool>("Description","String","Описание места",true)
+            })
+                <h3>Запросы</h3>
+                @{
+                    temp1 = "GetPlaces";
+                    temp2 = path + temp1 + token;
+                }
+                @Panel(temp1, "Возвращает список мест", new[]
+            {
+                new Tuple<string, string, string>("regionId", "null", "Идентификатор региона, места которого необходимо вернуть. Если этот параметр не задан, запрос вернет все места"),
+                new Tuple<string, string, string>("offset", "0", "Определяет смещение от начала списка возвращаемых мест"),
+                new Tuple<string, string, string>("count","20","Определяет количество возвращаемых мест, считая от смещения"),
+                new Tuple<string, string, string>("search", "null","Регистронезависимый фильтр по названию места")
+            },
+                temp2,
+                temp2 + "&offset=1",
+                temp2 + "&offset=0&count=100&details=true",
+                temp2 + "&region=20&culture=1",
+                temp2 + "&search=Лы&culture=ru")
+                @{
+                    temp1 = "GetPlace";
+                    temp2 = path + temp1 + token;
+                }
+
+                @Panel(temp1, "Возвращает место по идентификатору", new[]
+            {
+                new Tuple<string, string, string>("id", "", "Идентификатор места (поле Id). Является обязательным параметром")
+            },
+                temp2 + "&id=1",
+                temp2 + "&id=1&culture=ru",
+                temp2 + "&id=1&culture=ru&details=true")
+
+            </div>
+            <div id="routes" class="tab-pane fade">
+                <h3>Общие моменты</h3>
+                <ul>
+                    <li>У каждого маршрута есть создатель этого маршрута (author)</li>
+                    <li>Маршрут может быть публичным (доступен всем пользователям) и частным (доступен только владельцу)</li>
+                    <li>Каждый маршрут имеет два и более места (checkpoints)</li>
+                    <li>У каждого места (чекпоинта) пользователь в процессе прохождения маршрута может сделать чекин, после чего данное место является пройденным</li>
+                    <li>Пользователь может создавать неограниченное количество маршрутов</li>
+                    <li>Пользователь может сделать созданный им маршрут публичным, только если его опыт >=10 (то есть он выполнил >= 10 чекинов)</li>
+                    <li>Рейтинг маршрута равен отношению количества чекинов в этом маршруте к общему числу мест (чекпоинтов) этого маршрута</li>
+                    <li>При создании маршрут добавляется в закладки пользователя</li>
+                    <li>При выборе существующего маршрута он также добавляется в закладки</li>
+                    <li>Закладка хранит информацию о статусе маршрута (не начат, текущий, закончен) и сам маршрут</li>
+                    <li>Одновременно может отслеживаться только один маршрут, прохождение маршрута можно прервать</li>
+                    <li>Законченные маршруты можно перепроходить</li>
+                </ul>
+                @Structure("Структура чекпоинта", new[]
+            {
+                new Tuple<string, string, string,bool>("Id", "Int", "Идентификатор чекпоинта",false),
+                new Tuple<string, string, string,bool>("AverageTime", "Double", "Среднее время, за которое пользователи добираються до этого места считая от предыдущего чекпоинта. Для чекпоинта, который является первым, равно 0",true),
+                new Tuple<string, string, string,bool>("AverageTimeFormatted", "String", "Среднее время в читабельном формате (зависит от языка)",true),
+                new Tuple<string, string, string,bool>("Place","Place","Место, которое соответствует данному чекпоинту (см. структуру места)",false)
+            })
+                @Structure("Структура маршрута", new[]
+            {
+                new Tuple<string, string, string,bool>("Id", "Int", "Идентификатор маршрута",false),
+                new Tuple<string, string, string,bool>("Name","String","Имя маршрута",false),
+                new Tuple<string, string, string,bool>("Rating","Double","Рейтинг маршрута",false),
+                new Tuple<string, string, string,bool>("AverageTime", "Double", "Среднее время, за которое пользователи проходят данный маршрут",true),
+                new Tuple<string, string, string,bool>("AverageTimeFormatted", "String", "Среднее время в читабельном формате (зависит от языка)",true),
+                new Tuple<string, string, string,bool>("NumberOfCheckPoints","Int","Общее количество чекпоинтов",true),
+                new Tuple<string, string, string,bool>("Author","Int","Идентификатор пользователя, создавшего этот маршрут",false),
+                new Tuple<string, string, string,bool>("Status","String","Статус маршрута (публичный/частный)",false),
+                new Tuple<string, string, string,bool>("CheckPoints","IEnumerable<CheckPoint>","Список чекпоинтов данного маршрута (см. структуру чекпоинта)",false)
+            })
+                @Structure("Структура закладки", new[]
+            {
+                new Tuple<string, string, string,bool>("Id", "Int", "Идентификатор закладки",false),
+                new Tuple<string, string, string,bool>("Status","String","Статус маршрута, на который указывает закладка (не начат/текущий/закончен)",false),
+                new Tuple<string, string, string,bool>("Route","Route","Маршрут, на который указывает закладка (см. структуру маршрута)",false)
+            })
+                <h3>Запросы</h3>
+                @{
+                    temp1 = "GetPublicRoutes";
+                    temp2 = path + temp1 + token;
+                }
+                @Panel(temp1, "Возвращает список публичных маршрутов", new[]
+            {
+                new Tuple<string, string, string>("offset", "0", "Определяет смещение от начала списка возвращаемых маршрутов"),
+                new Tuple<string, string, string>("count","20","Определяет количество возвращаемых маршрутов, считая от смещения"),
+                new Tuple<string, string, string>("search", "null","Регистронезависимый фильтр по названию маршрута")
+            },
+                temp2,
+                temp2 + "&offset=1&details=true",
+                temp2 + "&search=Ха&culture=ru")
+                <hr />
+                @{
+                    temp1 = "GetRoute";
+                    temp2 = path + temp1 + token;
+                }
+                @Panel(temp1, "Возращает маршрут по идентификатору", new[]
+            {
+                new Tuple<string, string, string>("id", "", "Идентификатор маршрута. Является обязательным параметром")
+            },
+                temp2 + "&id=1",
+                temp2 + "&id=1&culture=ru&details=true")
+
+                <hr />
+                @{
+                    temp1 = "MakeRoutePublic";
+                    temp2 = path + temp1 + token;
+                }
+                @Panel(temp1, "Делает личный маршрут публичным", new[]
+            {
+                new Tuple<string, string, string>("routeId", "", "Идентификатор маршрута. Является обязательным параметром"),
+                new Tuple<string, string, string>("userId","","Идентификатор автора маршрута. Является обязательным параметром")
+            },
+                temp2 + "&routeId=5&userId=1",
+                temp2 + "&routeId=5&userId=1&culture=ru")
+                <hr />
+                @{
+                    temp1 = "GetUserBookmarks";
+                    temp2 = path + temp1 + token;
+                }
+                @Panel(temp1, "Возвращает список закладок пользователя", new[]
+            {
+                new Tuple<string, string, string>("userId", "", "Идентификатор пользователя. Является обязательным параметром"),
+                new Tuple<string, string, string>("offset", "0", "Определяет смещение от начала списка возвращаемых закладок"),
+                new Tuple<string, string, string>("count","20","Определяет количество возвращаемых закладок, считая от смещения"),
+                new Tuple<string, string, string>("search", "null","Регистронезависимый фильтр по названию маршрута в закладках")
+            },
+                temp2 + "&userId=1&details=true",
+                temp2 + "&userId=1&search=Ма&culture=ru")
+                <hr />
+                @{
+                    temp1 = "AddBookmark";
+                    temp2 = path + temp1 + token;
+                }
+                @Panel(temp1, "Добавляет в закладки пользователя публичный маршрут", new[]
+            {
+                new Tuple<string, string, string>("routeId", "", "Идентификатор публичного маршрута. Является обязательным параметром"),
+                new Tuple<string, string, string>("userId","","Идентификатор пользователя. Является обязательным параметром")
+            },
+                temp2 + "&routeId=2&userId=1",
+                temp2 + "&routeId=2&userId=1&culture=ru")
+                <hr />
+                @{
+                    temp1 = "RemoveBookmark";
+                    temp2 = path + temp1 + token;
+                }
+                @Panel(temp1, "Удаляет закладку", new[]
+            {
+                new Tuple<string, string, string>("bookmarkId", "", "Идентификатор закладки. Является обязательным параметром")
+            },
+                temp2 + "&bookmarkId=3",
+                temp2 + "&bookmarkId=3&culture=ru")
+
+                <hr />
+                @{
+                    temp1 = "StartTracking";
+                    temp2 = path + temp1 + token;
+                }
+                @Panel(temp1, "Начинает отслеживать маршрут (вызывайте, когда начинаете или перепроходите маршрут)", new[]
+            {
+                new Tuple<string, string, string>("bookmarkId", "", "Идентификатор закладки. Является обязательным параметром")
+            },
+                temp2 + "&bookmarkId=3",
+                temp2 + "&bookmarkId=3&culture=ru")
+
+                <hr />
+                @{
+                    temp1 = "AbortTracking";
+                    temp2 = path + temp1 + token;
+                }
+                @Panel(temp1, "Прерывает трекинг маршрута (вызывайте, только когда маршрут еще не закончен, но пользователь хочет его остановить)", new[]
+            {
+                new Tuple<string, string, string>("bookmarkId", "", "Идентификатор закладки. Является обязательным параметром")
+            },
+                temp2 + "&bookmarkId=3",
+                temp2 + "&bookmarkId=3&culture=ru")
+
+                <hr />
+                @{
+                    temp1 = "CheckIn";
+                    temp2 = path + temp1 + token;
+                }
+                @Panel(temp1, "Производит чекин (вызывайте, когда пользователь стоит возле нужного места)", new[]
+            {
+                new Tuple<string, string, string>("bookmarkId", "", "Идентификатор закладки. Является обязательным параметром"),
+                new Tuple<string, string, string>("checkPointId", "", "Идентификатор чекпоинта, которой юзер в данный момент проходит")
+            },
+                temp2 + "&bookmarkId=3&checkPointId=11",
+                temp2 + "&bookmarkId=3&checkPointId=11&culture=ru")
+                <hr />
+                
+                @{
+                    temp1 = "CreateRoute";
+                    temp2 = path + temp1 + token;
+                }
+
+                @Panel(temp1, "Создает маршрут по идентификаторам мест", new[]
+            {
+                new Tuple<string, string, string>("Author", "", "Идентификатор автора маршрута. Является обязательным параметром"),
+                new Tuple<string, string, string>("Places", "", "Массив идентификаторов мест длиной >=2. Является обязательным параметром"),
+                new Tuple<string, string, string>("Translation.En", "", "Имя маршрута на английском. Является обязательным параметром"),
+                new Tuple<string, string, string>("Translation.Ru", "", "Имя маршрута на русском. Является обязательным параметром")
+            },
+                temp2 + "&places=2&places=3&Translation.Ru=Маршрут666&Translation.En=Route666&Author=1")
+
+                <hr />
+                @{
+                    temp1 = "RemovePublicRoute";
+                    temp2 = path + temp1 + token;
+                }
+
+                @Panel(temp1, "Удаляет публичный маршрут", new[]
+            {
+                new Tuple<string, string, string>("routeId", "", "Идентификатор маршрута. Является обязательным параметром"),
+                new Tuple<string, string, string>("userId", "", "Идентификатор автора маршрута. Является обязательным параметром")
+            },
+                temp2 + "&routeId=7&userId=1")
+            </div>
+            <div id="users" class="tab-pane fade">
+                @Structure("Структура пользователя", new[]
+            {
+                new Tuple<string, string, string,bool>("Id", "Int", "Идентификатор пользователя",false),
+                new Tuple<string, string, string,bool>("Name","String","Имя пользователя",false),
+                new Tuple<string, string, string,bool>("LastName","String","Фамилия пользователя",false),
+
+                new Tuple<string, string, string,bool>("FacebookLogin","String","Id пользователя в Facebook",false),
+                new Tuple<string, string, string,bool>("GoogleLogin","String","Id пользователя в Google",false),
+                new Tuple<string, string, string,bool>("VkLogin","String","Id пользователя в Vk",false),
+
+                new Tuple<string, string, string,bool>("Email","String","Электронный адрес пользователя",false),
+                new Tuple<string, string, string,bool>("Password","String","Хеш пароля пользователя",false),
+                new Tuple<string, string, string,bool>("Image", "String","Адрес аватара пользователя",false),
+                new Tuple<string, string, string,bool>("Experience","Int","Опыт пользователя (определяется количеством чекинов)",false),
+                new Tuple<string, string, string,bool>("Status", "String","Статус пользователя (администратор, модератор, пользователь)",false),
+                new Tuple<string, string, string,bool>("RegistrationDate", "DateTime","Дата регистрации пользователя (если пользователь входил, через соцсети, то null)",false)
+            })
+                <h3>Запросы</h3>
+                @{
+                    temp1 = "LogIn";
+                    temp2 = path + temp1 + token;
+                }
+                @Panel(temp1, "Определяет, есть ли такой пользователь в базе данных (обычный вход)", new[]
+            {
+                new Tuple<string, string, string>("email", "", "Электронный адрес пользователя. Является обязательным параметром"),
+                new Tuple<string, string, string>("password", "", "Пароль пользователя (не хеш!). Является обязательным параметром")
+            },
+                temp2 + "&email=dima95kh@gmail.com&password=210194dima",
+                temp2 + "&email=dima95kh@gmail.com&password=210194dima&culture=ru")
+
+
+                @{
+                    temp1 = "Authenticate";
+                    temp2 = path + temp1 + token;
+                }
+                @Panel(temp1, "Вход с помощью социальных сетей", new[]
+            {
+                new Tuple<string, string, string>("AuthenticationProvider", "", "Социальная сеть (0 - Facebook, 1 - Google, 2 - Vk). Также можно указывать имя сети полностью(Facebook,Google,Vk). Является обязательным параметром"),
+                new Tuple<string, string, string>("id", "", "Id пользователя в указанной соцсети. Является обязательным параметром"),
+                new Tuple<string, string, string>("name", "", "Имя пользователя в указанной соцсети. Является обязательным параметром"),
+                new Tuple<string, string, string>("lastName", "", "Фамилия пользователя в указанной соцсети. Является обязательным параметром"),
+                new Tuple<string, string, string>("image", "", "Аватар пользователя в указанной соцсети. Является обязательным параметром")
+
+            },
+                temp2 + "&provider=Facebook&Id=100004511132458&name=Дмитрий&lastName=Бекузаров&image=https://fbcdn-profile-a.akamaihd.net/hprofile-ak-frc1/t1.0-1/c25.0.81.81/s50x50/252231_1002029915278_1941483569_s.jpg")
+
+                @{
+                    temp1 = "GetUser";
+                    temp2 = path + temp1 + token;
+                }
+
+                @Panel(temp1, "Возвращает ифнормацию о пользователе по идентификатору", new[]
+            {
+                new Tuple<string, string, string>("id", "", "Идентификатор пользователя (поле Id). Является обязательным параметром")
+            },
+                temp2 + "&id=1",
+                temp2 + "&id=1&culture=ru")
+            </div>
+        </div>
+    </div>
+</section>

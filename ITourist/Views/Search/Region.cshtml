@@ -1,0 +1,70 @@
+﻿@model Region
+@{
+    Culture culture = ViewBag.Culture;
+    var name = Model.GetName(culture);
+    ViewBag.Title = name;
+    Layout = "~/Views/Shared/_SideBarLayout.cshtml";
+    bool any = Model.Places.Any();
+}
+@helper Pagination(bool b,bool top = false)
+{
+    if (b)
+    {
+        @HtmlManager.Pagination(Url, "Region", "Search", ViewBag.Max, ViewBag.Current, Model.Id, ViewBag.Search,top)
+    }
+}
+@HtmlManager.SearchResult(any,ViewBag.Search)
+@section Search
+{
+    <form action="@Url.Action("Region","Search",new{id=Model.Id})" method="GET" accept-charset="utf-8">
+        <input type="text" class="input-block-level" name="search" placeholder="@Language.SearchPlace">
+    </form>
+<div style="margin-top: -20px; margin-bottom: 20px;"><a style="font-size: 13px;" href="@Url.Action("Extended","Search")">@Language.ExtendedSearch <i class="icon-arrow-long-right"></i> </a></div>
+}
+
+@if (!any)
+{
+    if (ViewBag.Search == null)
+     {
+         <div>
+             <div>
+                 <h3>@Language.NoPlaces</h3>
+             </div>
+         </div>
+     }
+    return;
+}
+@{
+    Place lastPlace = Model.Places.Last();
+}
+
+@Pagination(true, true)
+<section>
+    <ul class="ilist">
+        @foreach (var place in Model.Places)
+        {
+            <li>
+                <div class="media">
+                    <div class="pull-left">
+                        <a class="magnifier" href="@HtmlManager.DefineImagePath(place.Image)">
+                            <div class="">
+                                @HtmlManager.Image(place.Image + "?w=200", place.GetName(culture))
+                            </div>
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <a href="@Url.Action("Place", "Search", new { id = place.Id })">
+                            <span>@place.GetName(culture)</span>
+                        </a>
+                        <br />
+                    </div>
+                </div>
+                @if (place != lastPlace)
+                {
+                    <hr />
+                }
+            </li>
+        }
+    </ul>
+</section>
+@Pagination(true)

@@ -1,0 +1,124 @@
+﻿@{
+    ViewBag.Title = Language.LogIn;
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    ProcessResult result = ViewBag.Result;
+}
+<section class="title">
+    <div class="container">
+        <div class="row-fluid">
+            <div class="span6">
+                <h1>@Language.LogIn</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="registration-page" class="container h600" style="margin-top: 75px">
+    <form class="center" action="@Url.Action("ManageLogIn", "User")" method="POST">
+        <fieldset class="registration-form">
+            @if (result != null)
+            {
+                <div style="color:red">@result.GetMessage(ViewBag.Culture)</div>
+            }
+            <div class="control-group">
+                <!-- E-mail -->
+                <div class="controls">
+                    <input type="email" id="email" name="email" placeholder="@Language.Email" class="input-xlarge" required="required">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- Password -->
+                <div class="controls">
+                    <input type="password" id="password" name="password" placeholder="@Language.PassWord" class="input-xlarge" required="required">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <!-- Button -->
+                <div class="controls">
+                    <button class="btn btn-blue btn-large btn-block">@Language.Submit</button>
+                </div>
+            </div>
+            <hr />
+            <div class="control-group">
+                <h4>@Language.LogInWith</h4>
+                <div id="fb-login">
+                    <fb:login-button scope="public_profile,email" size="large" onlogin="checkLoginState();">
+                    </fb:login-button>
+                </div>
+                <div id="status">
+                </div>
+            </div>
+            <hr />
+            @Html.ActionLink(Language.Registration, "Registration", "User", null, new { @style = "font-size:1" })
+        </fieldset>
+    </form>
+</section>
+@section Styles
+{
+    <style>
+        body {
+            background-color: #f5f5f5;
+        }
+    </style>
+}
+@section Scripts
+{
+    <script>
+        var b = false;
+        function statusChangeCallback(response) {
+            if (response.status === 'connected' && b === true) {
+                testAPI();
+            }
+        }
+
+        function checkLoginState() {
+            b = true;
+            FB.getLoginStatus(function (response) {
+
+                statusChangeCallback(response);
+            });
+        }
+
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '236652226528429',
+                cookie: true,
+                xfbml: true, 
+                version: 'v2.0'
+            });
+            FB.getLoginStatus(function (response) {
+                statusChangeCallback(response);
+            });
+
+        };
+
+        @{
+            Culture culture = ViewBag.Culture;
+            string s = Translatable.DefineFullCultureName(culture);
+        }
+
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+
+        function testAPI() {
+
+            var url = '@Url.Action("Authenticate", "User")';
+            FB.api('/me/picture', function (response) {
+                url += '?provider=Facebook';
+                url += '&image=' + response.data.url;
+            });
+            FB.api('/me', { locale: "@s" }, function (response) {
+                url += '&name=' + response.first_name;
+                url += '&lastName=' + response.last_name;
+                url += '&id=' + response.id;
+                window.location = url;
+            });
+        }
+    </script>
+}

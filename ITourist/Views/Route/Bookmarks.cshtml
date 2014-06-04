@@ -1,0 +1,111 @@
+﻿@model IEnumerable<Bookmark>
+@{
+    ViewBag.Title = Language.Bookmarks;
+    User user = ViewBag.User;
+    Layout = "~/Views/Shared/_SideBarLayout.cshtml";
+    Culture culture = ViewBag.Culture ?? ITourist.Models.DataModels.Culture.En;
+}
+@if (!Model.Any())
+{
+    <div style="font-style: italic; font-size: 150%;">@Language.YouHaveNoBookmarks</div>
+    return;
+}
+@HtmlManager.MainProcessResultContainer(ViewBag.Result,culture)
+<ul class="routes-list">
+    @foreach (Bookmark bookmark in Model)
+    {
+        string s = "";
+        if (bookmark.Status == TrackingStatus.Current.Id)
+        {
+            s = "current-route";
+        }
+        else if (bookmark.Status == TrackingStatus.Finished.Id)
+        {
+            s = "passed-route";
+        }
+    <li class="m-10 @s">
+        <div class="route-status">
+            @if (bookmark.Route.Status == RouteStatus.Public.Id)
+                {
+            <i class="icon-users"></i>
+                }
+                else
+                {
+            <i class="icon-user"></i>
+                }
+        </div>
+        <input type="hidden" value="@bookmark.Id" />
+        <h4>@bookmark.Route.GetName(culture)</h4>
+        <div class="checkpoint-list">
+            @foreach (var checkPoint in bookmark.Route.CheckPoints)
+                {
+            <div><i class="icon-angle-right"></i>@Html.ActionLink(checkPoint.Place.GetName(culture),"Place","Search",new{id=checkPoint.PlaceId},new{@target="_blank"})</div>
+                }
+        </div>
+        <a class="btn btn-blue m-5" href='@Url.Action("ViewOnMap","Route",new{id=bookmark.RouteId})' target=" _blank">@Language.ViewOnMap</a>
+        @if (!user.HasLowExperience&&bookmark.Route.Status==RouteStatus.Private.Id)
+            {
+        <a href="#makePublic" data-toggle="modal" class="btn btn-blue m-5" onclick="makePubic('@Url.Action("MakeRoutePublic","Route",new{id=bookmark.RouteId})');">@Language.MakePublic</a>
+            }
+        @if (bookmark.Status != TrackingStatus.Current.Id)
+        {
+
+        <a class="btn btn-blue m-5" href='@Url.Action("RemoveBookmark", "Route", new {id = bookmark.Id})'>@Language.Remove</a>
+
+            if (user.Id == bookmark.Route.Author && bookmark.Route.Status == RouteStatus.Public.Id)
+            {
+        <a href="#removePublic" data-toggle="modal" class="btn btn-blue m-5" onclick="removePublic('@Url.Action("RemovePublicRoute", "Route" , new {id=bookmark.RouteId})'); ">@Language.RemoveCompletely</a>
+            }
+        }
+    </li>
+    }
+</ul>
+<br />
+<div style="font-style: italic; font-size: 150%;" class="m-5">@Language.UseMobileAppToPassRoutes</div>
+<div class="modal hide fade" id="makePublic" aria-hidden="true" style="display: none;">
+    <div class="modal-header">
+        <i class="icon-remove" data-dismiss="modal" aria-hidden="true"></i>
+        <h4 style="text-align: center">@Language.EnterRouteTranslations</h4>
+    </div>
+    <!--Modal Body-->
+    <div class="modal-body">
+        <form class="form-group" action="" method="GET" id="makePublicForm" style="text-align: center">
+            <div class="form-control">
+                <span style="margin:0 5px">@Language.NameEn</span><input type="text" style="width: 250px; margin-top: 12px" name="Translation.En" required="required">
+            </div>
+            <div class="form-control">
+                <span style="margin:0 5px">@Language.NameRu</span><input type="text" style="width: 250px; margin-top: 12px" name="Translation.Ru" required="required">
+            </div>
+            <br />
+            <button type="submit" class="btn btn-large btn-blue" style="margin: 0">@Language.Submit</button>
+        </form>
+    </div>
+    <!--/Modal Body-->
+</div>
+<div class="modal hide fade" id="removePublic" aria-hidden="true" style="display: none;">
+    <div class="modal-header">
+        <i class="icon-remove" data-dismiss="modal" aria-hidden="true"></i>
+        <h4 style="text-align: center">@Language.AreYouSure</h4>
+    </div>
+    <!--Modal Body-->
+    <div class="modal-body">
+        <form class="form-group" action="" method="GET" id="removePublicForm" style="text-align: center">
+            <div class="m-5" style="font-size: 130%;font-style: italic">@Language.RemovePublicNotification</div>
+            <br />
+            <button type="submit" class="btn btn-large btn-blue" style="margin: 0">@Language.Submit</button>
+        </form>
+    </div>
+    <!--/Modal Body-->
+</div>
+
+@section Scripts
+{
+    <script>
+        function makePubic(action) {
+            $("form#makePublicForm").attr('action', action);
+        }
+        function removePublic(action) {
+            $("form#removePublicForm").attr('action', action);
+        }
+    </script>
+}

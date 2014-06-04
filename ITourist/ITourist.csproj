@@ -1,0 +1,737 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ADE5E3D4-5B0F-473F-8A3A-294457E04663}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ITourist</RootNamespace>
+    <AssemblyName>ITourist</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageResizer">
+      <HintPath>..\packages\ImageResizer.3.4.2\lib\ImageResizer.dll</HintPath>
+    </Reference>
+    <Reference Include="ImageResizer.Mvc">
+      <HintPath>..\packages\ImageResizer.Mvc.3.4.2\lib\ImageResizer.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.0.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.0.0\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.0.0\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.1.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.1.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.1.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\Photos\2\" />
+    <Folder Include="Images\Photos\3\" />
+    <Folder Include="Images\Photos\4\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Resources\Language.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Language.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Resources\Language.ru.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Language.ru.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ApiController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RouteController.cs" />
+    <Compile Include="Controllers\SearchController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataModels\AuthenticationProvider.cs" />
+    <Compile Include="Models\DataModels\Bookmark.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataModels\CheckIn.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataModels\CheckPoint.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataModels\CheckPoint.Extensions.cs" />
+    <Compile Include="Models\DataModels\Comment.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataModels\Country.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataModels\Country.Extensions.cs" />
+    <Compile Include="Models\DataModels\DataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataModels\DataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataModels\DataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataModels\LikesToPlace.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataModels\Photo.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataModels\Place.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataModels\Place.Extensions.cs" />
+    <Compile Include="Models\DataModels\PlaceType.cs" />
+    <Compile Include="Models\DataModels\ProcessResult.cs" />
+    <Compile Include="Models\DataModels\Region.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataModels\Region.Extensions.cs" />
+    <Compile Include="Models\DataModels\Route.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataModels\Route.Extensions.cs" />
+    <Compile Include="Models\DataModels\Bookmark.Extensions.cs" />
+    <Compile Include="Models\DataModels\Serializable\SBookmark.cs" />
+    <Compile Include="Models\DataModels\Serializable\SCheckpoint.cs" />
+    <Compile Include="Models\DataModels\Serializable\SCountry.cs" />
+    <Compile Include="Models\DataModels\Serializable\Serializable.cs" />
+    <Compile Include="Models\DataModels\Serializable\SFactory.cs" />
+    <Compile Include="Models\DataModels\Serializable\SPlace.cs" />
+    <Compile Include="Models\DataModels\Serializable\SProcessResult.cs" />
+    <Compile Include="Models\DataModels\Serializable\SRegion.cs" />
+    <Compile Include="Models\DataModels\Serializable\SRoute.cs" />
+    <Compile Include="Models\DataModels\Serializable\SUser.cs" />
+    <Compile Include="Models\DataModels\NumberTranslator.cs" />
+    <Compile Include="Models\DataModels\Translatable.cs" />
+    <Compile Include="Models\DataModels\Translation.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataModels\Translation.Extensions.cs" />
+    <Compile Include="Models\DataModels\User.cs">
+      <DependentUpon>DataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DataModels\User.Extensions.cs" />
+    <Compile Include="Models\DataModels\Status.cs" />
+    <Compile Include="Models\LogicModels\Managers\CountryManager.cs" />
+    <Compile Include="Models\LogicModels\Managers\DataManager.cs" />
+    <Compile Include="Models\LogicModels\Managers\Manager.cs" />
+    <Compile Include="Models\LogicModels\Managers\PlaceManager.cs" />
+    <Compile Include="Models\LogicModels\Managers\RegionManager.cs" />
+    <Compile Include="Models\LogicModels\Managers\RouteManager.cs" />
+    <Compile Include="Models\LogicModels\Managers\UserManager.cs" />
+    <Compile Include="Models\LogicModels\Services\ConfirmationMailSender.cs" />
+    <Compile Include="Models\LogicModels\Services\ISender.cs" />
+    <Compile Include="Models\LogicModels\Services\Security.cs" />
+    <Compile Include="Models\LogicModels\Services\SecurityManager.cs" />
+    <Compile Include="Models\LogicModels\Services\StaticSettings.cs" />
+    <Compile Include="Models\DataModels\SearchOrder.cs" />
+    <Compile Include="Models\DataModels\ExtendedSearch.cs" />
+    <Compile Include="Models\ViewModels\RegistrationModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\Countries.txt" />
+    <Content Include="App_Data\CountriesTranslations.txt" />
+    <Content Include="App_Data\ITouristDatabase.mdf" />
+    <Content Include="App_Data\ITouristDatabase_log.ldf">
+      <DependentUpon>ITouristDatabase.mdf</DependentUpon>
+    </Content>
+    <Content Include="Content\Dashboard\bootstrap-theme.css" />
+    <Content Include="Content\Dashboard\bootstrap-theme.min.css" />
+    <Content Include="Content\Dashboard\bootstrap.css" />
+    <Content Include="Content\Dashboard\bootstrap.min.css" />
+    <Content Include="Content\Dashboard\font-awesome.css" />
+    <Content Include="Content\Dashboard\font-awesome.min.css" />
+    <Content Include="Content\Dashboard\iconmoon.css" />
+    <Content Include="Content\Dashboard\sb-admin.css" />
+    <Content Include="Content\Gallery\blueimp-gallery.min.css" />
+    <Content Include="Content\Gallery\bootstrap-image-gallery.min.css" />
+    <Content Include="Content\Main\bootstrap-responsive.min.css" />
+    <Content Include="Content\Main\bootstrap.min.css" />
+    <Content Include="Content\Main\docs.css" />
+    <Content Include="Content\Main\font-awesome.min.css" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\Main\main.css" />
+    <Content Include="Content\Main\mixins.css" />
+    <Content Include="Content\Main\prettify.css" />
+    <Content Include="Content\Main\sl-slide.css" />
+    <Content Include="Content\Main\touchTouch.css" />
+    <Content Include="Content\Main\variables.css">
+      <DependentUpon>variables.less</DependentUpon>
+    </Content>
+    <Content Include="Content\Main\variables.min.css">
+      <DependentUpon>variables.css</DependentUpon>
+    </Content>
+    <Content Include="favicon.ico" />
+    <Content Include="Content\font\fontawesome-webfont.svg" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Images\Avatars\1.jpg" />
+    <Content Include="Images\Avatars\10.jpg" />
+    <Content Include="Images\Avatars\5.jpg" />
+    <Content Include="Images\Avatars\6.jpg" />
+    <Content Include="Images\Avatars\7.jpg" />
+    <Content Include="Images\Avatars\8.jpg" />
+    <Content Include="Images\Avatars\9.jpg" />
+    <Content Include="Images\Countries\Afghanistan.png" />
+    <Content Include="Images\Countries\Albania.png" />
+    <Content Include="Images\Countries\Algeria.png" />
+    <Content Include="Images\Countries\Andorra.png" />
+    <Content Include="Images\Countries\Angola.png" />
+    <Content Include="Images\Countries\AntiguaAndBarbuda.png" />
+    <Content Include="Images\Countries\Argentina.png" />
+    <Content Include="Images\Countries\Armenia.png" />
+    <Content Include="Images\Countries\Australia.png" />
+    <Content Include="Images\Countries\Austria.png" />
+    <Content Include="Images\Countries\Azerbaijan.png" />
+    <Content Include="Images\Countries\Bahamas.png" />
+    <Content Include="Images\Countries\Bahrain.png" />
+    <Content Include="Images\Countries\Bangladesh.png" />
+    <Content Include="Images\Countries\Barbados.png" />
+    <Content Include="Images\Countries\Belarus.png" />
+    <Content Include="Images\Countries\Belgium.png" />
+    <Content Include="Images\Countries\Belize.png" />
+    <Content Include="Images\Countries\Benin.png" />
+    <Content Include="Images\Countries\Bhutan.png" />
+    <Content Include="Images\Countries\Bolivia.png" />
+    <Content Include="Images\Countries\BosniaAndHerzegovina.png" />
+    <Content Include="Images\Countries\Botswana.png" />
+    <Content Include="Images\Countries\Brazil.png" />
+    <Content Include="Images\Countries\Brunei.png" />
+    <Content Include="Images\Countries\Bulgaria.png" />
+    <Content Include="Images\Countries\BurkinaFaso.png" />
+    <Content Include="Images\Countries\Burundi.png" />
+    <Content Include="Images\Countries\Cambodia.png" />
+    <Content Include="Images\Countries\Cameroon.png" />
+    <Content Include="Images\Countries\Canada.png" />
+    <Content Include="Images\Countries\CapeVerde.png" />
+    <Content Include="Images\Countries\CentralAfricanRepublic.png" />
+    <Content Include="Images\Countries\Chad.png" />
+    <Content Include="Images\Countries\Chile.png" />
+    <Content Include="Images\Countries\China.png" />
+    <Content Include="Images\Countries\Colombia.png" />
+    <Content Include="Images\Countries\Comoros.png" />
+    <Content Include="Images\Countries\Congo.png" />
+    <Content Include="Images\Countries\CookIslands.png" />
+    <Content Include="Images\Countries\CostaRica.png" />
+    <Content Include="Images\Countries\Croatia.png" />
+    <Content Include="Images\Countries\Cuba.png" />
+    <Content Include="Images\Countries\Cyprus.png" />
+    <Content Include="Images\Countries\CzechRepublic.png" />
+    <Content Include="Images\Countries\DemocraticRepublicOfTheCongo.png" />
+    <Content Include="Images\Countries\Denmark.png" />
+    <Content Include="Images\Countries\Djibouti.png" />
+    <Content Include="Images\Countries\Dominica.png" />
+    <Content Include="Images\Countries\DominicanRepublic.png" />
+    <Content Include="Images\Countries\EastTimor.png" />
+    <Content Include="Images\Countries\Ecuador.png" />
+    <Content Include="Images\Countries\Egypt.png" />
+    <Content Include="Images\Countries\ElSalvador.png" />
+    <Content Include="Images\Countries\EquatorialGuinea.png" />
+    <Content Include="Images\Countries\Eritrea.png" />
+    <Content Include="Images\Countries\Estonia.png" />
+    <Content Include="Images\Countries\Ethiopia.png" />
+    <Content Include="Images\Countries\Fiji.png" />
+    <Content Include="Images\Countries\Finland.png" />
+    <Content Include="Images\Countries\France.png" />
+    <Content Include="Images\Countries\Gabon.png" />
+    <Content Include="Images\Countries\Gambia.png" />
+    <Content Include="Images\Countries\Georgia.png" />
+    <Content Include="Images\Countries\Germany.png" />
+    <Content Include="Images\Countries\Ghana.png" />
+    <Content Include="Images\Countries\Greece.png" />
+    <Content Include="Images\Countries\Grenada.png" />
+    <Content Include="Images\Countries\Guatemala.png" />
+    <Content Include="Images\Countries\Guinea.png" />
+    <Content Include="Images\Countries\GuineaBissau.png" />
+    <Content Include="Images\Countries\Guyana.png" />
+    <Content Include="Images\Countries\Haiti.png" />
+    <Content Include="Images\Countries\Honduras.png" />
+    <Content Include="Images\Countries\Hungary.png" />
+    <Content Include="Images\Countries\Iceland.png" />
+    <Content Include="Images\Countries\India.png" />
+    <Content Include="Images\Countries\Indonesia.png" />
+    <Content Include="Images\Countries\Iran.png" />
+    <Content Include="Images\Countries\Iraq.png" />
+    <Content Include="Images\Countries\Ireland.png" />
+    <Content Include="Images\Countries\Israel.png" />
+    <Content Include="Images\Countries\Italy.png" />
+    <Content Include="Images\Countries\IvoryCoast.png" />
+    <Content Include="Images\Countries\Jamaica.png" />
+    <Content Include="Images\Countries\Japan.png" />
+    <Content Include="Images\Countries\Jordan.png" />
+    <Content Include="Images\Countries\Kazakhstan.png" />
+    <Content Include="Images\Countries\Kenya.png" />
+    <Content Include="Images\Countries\Kiribati.png" />
+    <Content Include="Images\Countries\Kuwait.png" />
+    <Content Include="Images\Countries\Kyrgyzstan.png" />
+    <Content Include="Images\Countries\Laos.png" />
+    <Content Include="Images\Countries\Latvia.png" />
+    <Content Include="Images\Countries\Lebanon.png" />
+    <Content Include="Images\Countries\Lesotho.png" />
+    <Content Include="Images\Countries\Liberia.png" />
+    <Content Include="Images\Countries\Libya.png" />
+    <Content Include="Images\Countries\Lithuania.png" />
+    <Content Include="Images\Countries\Luxembourg.png" />
+    <Content Include="Images\Countries\Macedonia.png" />
+    <Content Include="Images\Countries\Madagascar.png" />
+    <Content Include="Images\Countries\Malawi.png" />
+    <Content Include="Images\Countries\Malaysia.png" />
+    <Content Include="Images\Countries\Maldives.png" />
+    <Content Include="Images\Countries\Mali.png" />
+    <Content Include="Images\Countries\Malta.png" />
+    <Content Include="Images\Countries\MarshallIslands.png" />
+    <Content Include="Images\Countries\Mauritania.png" />
+    <Content Include="Images\Countries\Mauritius.png" />
+    <Content Include="Images\Countries\Mexico.png" />
+    <Content Include="Images\Countries\Micronesia.png" />
+    <Content Include="Images\Countries\Moldova.png" />
+    <Content Include="Images\Countries\Monaco.png" />
+    <Content Include="Images\Countries\Mongolia.png" />
+    <Content Include="Images\Countries\Montenegro.png" />
+    <Content Include="Images\Countries\Morocco.png" />
+    <Content Include="Images\Countries\Mozambique.png" />
+    <Content Include="Images\Countries\Myanmar.png" />
+    <Content Include="Images\Countries\Namibia.png" />
+    <Content Include="Images\Countries\Nauru.png" />
+    <Content Include="Images\Countries\Nepal.png" />
+    <Content Include="Images\Countries\Netherlands.png" />
+    <Content Include="Images\Countries\NewZealand.png" />
+    <Content Include="Images\Countries\Nicaragua.png" />
+    <Content Include="Images\Countries\Niger.png" />
+    <Content Include="Images\Countries\Nigeria.png" />
+    <Content Include="Images\Countries\Niue.png" />
+    <Content Include="Images\Countries\NorthKorea.png" />
+    <Content Include="Images\Countries\Norway.png" />
+    <Content Include="Images\Countries\Oman.png" />
+    <Content Include="Images\Countries\Pakistan.png" />
+    <Content Include="Images\Countries\Palau.png" />
+    <Content Include="Images\Countries\Panama.png" />
+    <Content Include="Images\Countries\PapuaNewGuinea.png" />
+    <Content Include="Images\Countries\Paraguay.png" />
+    <Content Include="Images\Countries\Peru.png" />
+    <Content Include="Images\Countries\Philippines.png" />
+    <Content Include="Images\Countries\Poland.png" />
+    <Content Include="Images\Countries\Portugal.png" />
+    <Content Include="Images\Countries\Qatar.png" />
+    <Content Include="Images\Countries\Romania.png" />
+    <Content Include="Images\Countries\Russia.png" />
+    <Content Include="Images\Countries\Rwanda.png" />
+    <Content Include="Images\Countries\SaintKittsAndNevis.png" />
+    <Content Include="Images\Countries\SaintLucia.png" />
+    <Content Include="Images\Countries\SaintVincentAndTheGrenadines.png" />
+    <Content Include="Images\Countries\Samoa.png" />
+    <Content Include="Images\Countries\SanMarino.png" />
+    <Content Include="Images\Countries\SaoTomeAndPrincipe.png" />
+    <Content Include="Images\Countries\SaudiArabia.png" />
+    <Content Include="Images\Countries\Senegal.png" />
+    <Content Include="Images\Countries\Serbia.png" />
+    <Content Include="Images\Countries\Seychelles.png" />
+    <Content Include="Images\Countries\SierraLeone.png" />
+    <Content Include="Images\Countries\Singapore.png" />
+    <Content Include="Images\Countries\Slovakia.png" />
+    <Content Include="Images\Countries\Slovenia.png" />
+    <Content Include="Images\Countries\SolomonIslands.png" />
+    <Content Include="Images\Countries\Somalia.png" />
+    <Content Include="Images\Countries\SouthAfrica.png" />
+    <Content Include="Images\Countries\SouthKorea.png" />
+    <Content Include="Images\Countries\SouthSudan.png" />
+    <Content Include="Images\Countries\Spain.png" />
+    <Content Include="Images\Countries\SriLanka.png" />
+    <Content Include="Images\Countries\Sudan.png" />
+    <Content Include="Images\Countries\Suriname.png" />
+    <Content Include="Images\Countries\Swaziland.png" />
+    <Content Include="Images\Countries\Sweden.png" />
+    <Content Include="Images\Countries\Switzerland.png" />
+    <Content Include="Images\Countries\Syria.png" />
+    <Content Include="Images\Countries\Tajikistan.png" />
+    <Content Include="Images\Countries\Tanzania.png" />
+    <Content Include="Images\Countries\Thailand.png" />
+    <Content Include="Images\Countries\Togo.png" />
+    <Content Include="Images\Countries\Tonga.png" />
+    <Content Include="Images\Countries\TrinidadAndTobago.png" />
+    <Content Include="Images\Countries\Tunisia.png" />
+    <Content Include="Images\Countries\Turkey.png" />
+    <Content Include="Images\Countries\Turkmenistan.png" />
+    <Content Include="Images\Countries\Tuvalu.png" />
+    <Content Include="Images\Countries\Uganda.png" />
+    <Content Include="Images\Countries\Ukraine.png" />
+    <Content Include="Images\Countries\UnitedArabEmirates.png" />
+    <Content Include="Images\Countries\UnitedKingdom.png" />
+    <Content Include="Images\Countries\UnitedStates.png" />
+    <Content Include="Images\Countries\Uruguay.png" />
+    <Content Include="Images\Countries\Uzbekistan.png" />
+    <Content Include="Images\Countries\Vanuatu.png" />
+    <Content Include="Images\Countries\Venezuela.png" />
+    <Content Include="Images\Countries\Vietnam.png" />
+    <Content Include="Images\Countries\Yemen.png" />
+    <Content Include="Images\Countries\Zambia.png" />
+    <Content Include="Images\Countries\Zimbabwe.png" />
+    <Content Include="Images\Icons\apple-touch-icon-114-precomposed.png" />
+    <Content Include="Images\Icons\apple-touch-icon-144-precomposed.png" />
+    <Content Include="Images\Icons\apple-touch-icon-57-precomposed.png" />
+    <Content Include="Images\Icons\apple-touch-icon-72-precomposed.png" />
+    <Content Include="Images\Icons\arrows.png" />
+    <Content Include="Images\Icons\favicon.ico" />
+    <Content Include="Images\Icons\favicon.png" />
+    <Content Include="Images\Icons\magnifier.png" />
+    <Content Include="Images\Icons\spinner.gif" />
+    <Content Include="Images\Icons\x.png" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\Main\android.png" />
+    <Content Include="Images\Main\ios.png" />
+    <Content Include="Images\Main\English.gif" />
+    <Content Include="Images\Main\Russian.jpg" />
+    <Content Include="Images\Main\windows.png" />
+    <Content Include="Images\no-image.png" />
+    <Content Include="App_Code\HtmlManager.cshtml" />
+    <Content Include="Images\Photos\1\1.jpg" />
+    <Content Include="Images\Photos\1\2.jpg" />
+    <Content Include="Images\Photos\1\3.jpg" />
+    <Content Include="Images\Photos\1\4.jpg" />
+    <Content Include="Images\Photos\1\5.jpg" />
+    <Content Include="Images\Places\1.jpg" />
+    <Content Include="Images\Places\2.jpg" />
+    <Content Include="Images\Places\3.jpg" />
+    <Content Include="Images\Regions\13.jpg" />
+    <Content Include="Images\Regions\14.jpg" />
+    <Content Include="Images\Regions\15.jpg" />
+    <Content Include="Images\Regions\16.jpg" />
+    <Content Include="Images\Regions\17.jpg" />
+    <Content Include="Images\Regions\18.jpg" />
+    <Content Include="Images\Regions\19.jpg" />
+    <Content Include="Images\Regions\20.jpg" />
+    <Content Include="Images\Regions\21.jpg" />
+    <Content Include="Images\Sample\Gallery\img1.jpg" />
+    <Content Include="Images\Sample\Gallery\img2.jpg" />
+    <Content Include="Images\Sample\Gallery\img3.jpg" />
+    <Content Include="Images\Sample\Gallery\img4.jpg" />
+    <Content Include="Images\Sample\Gallery\img5.jpg" />
+    <Content Include="Images\Sample\Gallery\img6.jpg" />
+    <Content Include="Images\Sample\Gallery\img7.jpg" />
+    <Content Include="Images\Sample\Gallery\img8.jpg" />
+    <Content Include="Images\Sample\Slider\img1.png" />
+    <Content Include="Images\Sample\Slider\img2.png" />
+    <Content Include="Images\Sample\Slider\img3.png" />
+    <Content Include="Images\Team\team1.jpg" />
+    <Content Include="Images\Team\team2.jpg" />
+    <Content Include="Images\Team\team3.jpg" />
+    <Content Include="Images\Team\team4.jpg" />
+    <Content Include="Images\Team\team5.jpg" />
+    <Content Include="Images\Team\team6.jpg" />
+    <Content Include="Images\Team\team7.jpg" />
+    <Content Include="Content\Main\main.less" />
+    <Content Include="Content\Main\mixins.less" />
+    <Content Include="Content\Main\variables.less" />
+    <Content Include="Images\Sample\Gallery\Thumbs.db" />
+    <Content Include="Content\font\fontawesome-webfont.eot" />
+    <Content Include="Content\font\fontawesome-webfont.ttf" />
+    <Content Include="Content\font\fontawesome-webfont.woff" />
+    <Content Include="Content\font\FontAwesome.otf" />
+    <Content Include="Content\Main\.DS_Store" />
+    <Content Include="Content\Dashboard\bootstrap-theme.css.map" />
+    <Content Include="Content\Dashboard\bootstrap.css.map" />
+    <Content Include="Plugins\DataTables\dataTables.bootstrap.css" />
+    <Content Include="Plugins\DataTables\dataTables.bootstrap.js" />
+    <Content Include="Plugins\DataTables\jquery.dataTables.js" />
+    <Content Include="Plugins\Morris\morris.css" />
+    <Content Include="Plugins\Morris\morris.js" />
+    <Content Include="Plugins\Morris\raphael.js" />
+    <Content Include="Scripts\Dashboard\jquery-2.1.0.min.map" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <EntityDeploy Include="Models\DataModels\DataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\DataModels\DataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataModel.edmx</DependentUpon>
+      <LastGenOutput>DataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\DataModels\DataModel.edmx.diagram">
+      <DependentUpon>DataModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\DataModels\DataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataModel.edmx</DependentUpon>
+      <LastGenOutput>DataModel.cs</LastGenOutput>
+    </Content>
+    <None Include="Scripts\jquery-2.1.0.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Dashboard\bootstrap.js" />
+    <Content Include="Scripts\Dashboard\bootstrap.min.js" />
+    <Content Include="Scripts\Dashboard\dashboard-demo.js" />
+    <Content Include="Scripts\Dashboard\flot-demo.js" />
+    <None Include="Scripts\Dashboard\jquery-2.1.0.intellisense.js" />
+    <Content Include="Scripts\Dashboard\jquery-2.1.0.js" />
+    <Content Include="Scripts\Dashboard\jquery-2.1.0.min.js" />
+    <Content Include="Scripts\Dashboard\jquery.metisMenu.js" />
+    <Content Include="Scripts\Dashboard\modernizr-2.7.1.js" />
+    <Content Include="Scripts\Dashboard\morris-demo.js" />
+    <Content Include="Scripts\Dashboard\respond.js" />
+    <Content Include="Scripts\Dashboard\respond.min.js" />
+    <Content Include="Scripts\Dashboard\sb-admin.js" />
+    <Content Include="Scripts\Gallery\bootstrap-image-gallery.min.js" />
+    <Content Include="Scripts\Gallery\jquery.blueimp-gallery.min.js" />
+    <Content Include="Scripts\jquery-2.1.0.js" />
+    <Content Include="Scripts\jquery-2.1.0.min.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\Main\bootstrap.min.js" />
+    <Content Include="Scripts\Main\jquery.ba-cond.min.js" />
+    <Content Include="Scripts\Main\jquery.slitslider.js" />
+    <Content Include="Scripts\Main\jquery.touchTouch.js" />
+    <Content Include="Scripts\Main\main.js" />
+    <Content Include="Scripts\Main\twitter-bootstrap-hover-dropdown.min.js" />
+    <Content Include="Scripts\Main\Vendor\bootstrap.min.js" />
+    <Content Include="Scripts\Main\Vendor\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\Main\Vendor\modernizr-2.6.2-respond-1.1.0.min.js" />
+    <Content Include="Scripts\modernizr-2.7.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-2.1.0.min.map" />
+    <Content Include="Views\Api\Help.cshtml" />
+    <Content Include="Views\Dashboard\AddRegion.cshtml" />
+    <Content Include="Views\Shared\_MainLayout.cshtml" />
+    <Content Include="Views\Search\Countries.cshtml" />
+    <Content Include="Views\Shared\_SideBarLayout.cshtml" />
+    <Content Include="Views\Search\Country.cshtml" />
+    <Content Include="Views\Search\Region.cshtml" />
+    <Content Include="Views\Search\Place.cshtml" />
+    <Content Include="Views\Route\PublicRoutes.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\LogIn.cshtml" />
+    <Content Include="Views\User\Registration.cshtml" />
+    <Content Include="Views\User\RegistrateUser.cshtml" />
+    <Content Include="Views\User\Confirm.cshtml" />
+    <Content Include="Views\Route\ManagePlaceInRoute.cshtml" />
+    <Content Include="Views\Route\ChosenPlaces.cshtml" />
+    <Content Include="Views\Shared\ProcessError.cshtml" />
+    <Content Include="Views\Route\ViewOnMap.cshtml" />
+    <Content Include="Views\Route\Save.cshtml" />
+    <Content Include="Views\Route\Bookmarks.cshtml" />
+    <Content Include="Views\User\Profile.cshtml" />
+    <Content Include="Views\Search\Extended.cshtml" />
+    <Content Include="Views\Dashboard\AddCountry.cshtml" />
+    <Content Include="Views\Dashboard\AddPlace.cshtml" />
+    <Content Include="Views\Dashboard\AddPlacePhoto.cshtml" />
+    <Content Include="Views\Dashboard\Countries.cshtml" />
+    <Content Include="Views\Dashboard\Country.cshtml" />
+    <Content Include="Views\Dashboard\DeleteCountry.cshtml" />
+    <Content Include="Views\Dashboard\DeletePlace.cshtml" />
+    <Content Include="Views\Dashboard\DeleteRegion.cshtml" />
+    <Content Include="Views\Dashboard\EditCountry.cshtml" />
+    <Content Include="Views\Dashboard\EditPlace.cshtml" />
+    <Content Include="Views\Dashboard\EditRegion.cshtml" />
+    <Content Include="Views\Dashboard\EditUserStatus.cshtml" />
+    <Content Include="Views\Dashboard\GetPublicRoutes.cshtml" />
+    <Content Include="Views\Dashboard\GetRoute.cshtml" />
+    <Content Include="Views\Dashboard\GetUser.cshtml" />
+    <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Dashboard\NoPermission.cshtml" />
+    <Content Include="Views\Dashboard\Place.cshtml" />
+    <Content Include="Views\Dashboard\Region.cshtml" />
+    <Content Include="Views\Dashboard\Users.cshtml" />
+    <Content Include="Views\Shared\Dashboard_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="App_Resources\Language.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Language.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_Resources\Language.ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Language.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>2259</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:16944/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

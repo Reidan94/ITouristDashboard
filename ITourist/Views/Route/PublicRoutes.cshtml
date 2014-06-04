@@ -1,0 +1,96 @@
+﻿@using Route = ITourist.Models.DataModels.Route
+@model IEnumerable<Route>
+@{
+    ViewBag.Title = Language.Routes;
+    Layout = "~/Views/Shared/_SideBarLayout.cshtml";
+    Culture culture = ViewBag.Culture;
+    bool b = !Model.Any();
+    User user = ViewBag.User;
+}
+@helper Pagination(bool b)
+{
+    if (!b)
+    {
+        @HtmlManager.Pagination(Url, "Routes", "Search", ViewBag.Max, ViewBag.Current, null, ViewBag.Search)
+    }
+}
+
+@if (ViewBag.Search != null)
+{
+    string res = String.Format(b ? Language.NothingFound : Language.SearchResults, ViewBag.Search);
+    <div style="font-style: italic;  font-size: 150%;">@res</div>
+}
+<section>
+    <ul class="routes-list">
+        @foreach (Route route in Model)
+        {
+            <li class="m-5 ">
+                <div class="route-time">
+                    <i class="icon-user"> </i>@route.Rating
+                    <i class="icon-clock-o"> </i>@route.FormatAverageTime(culture)
+                </div>
+                <h4>@route.GetName(culture)</h4>
+                <div class="checkpoint-list">
+                    @foreach (var checkPoint in route.CheckPoints)
+                    {
+                        <div><i class="icon-angle-right"></i>@Html.ActionLink(checkPoint.Place.GetName(culture), "Place", "Search", new { id = checkPoint.PlaceId }, new { @target = "_blank" })</div>
+                    }
+                </div>
+                <a class="btn btn-blue m-5" href='@Url.Action("ViewOnMap","Route",new{id=route.Id})' target=" _blank">@Language.ViewOnMap</a>
+                @if (!user.HasRouteInBookmarks(route.Id))
+                {
+                    <button class="btn btn-blue m-5" onclick="addToBoomarks(this,'@Url.Action("AddToBookmarks", "Route", new { routeId = route.Id })');">@Language.AddToBookmarks</button>
+                }
+            </li>
+        }
+    </ul>
+</section>
+@Pagination(b)
+<div id="added" style="display: none">
+    <div class="res" style="display: none">
+        <i class="icon-check" style="color: #2dcc70"></i>
+        <span></span>
+    </div>
+</div>
+<div id="error" style="display: none">
+    <div class="res m-5" style="display: none">
+        <i class="icon-bug" style="color: black"></i>
+        <span></span>
+    </div>
+</div>
+@section Search
+{
+    <form action="@Url.Action("PublicRoutes", "Route")" method="GET" accept-charset="utf-8">
+        <input type="text" class="input-block-level" name="search" placeholder="@Language.SearchRoute">
+    </form>
+}
+@section Scripts{
+    <script>
+        function addToBoomarks(element, url) {
+            $(element).fadeOut('slow');
+            $.getJSON(url, function (result) {
+                var res = result["Succeeded"];
+                var replace;
+                if (res == true || res == "True" || res == "true") {
+                    replace = $("#added").html();
+                } else {
+                    replace = $("#error").html();
+                }
+                $(element).replaceWith(replace);
+                $(".res span").html(result["Message"]);
+                $(".res ").fadeIn('slow');
+            });
+        }
+    </script>
+}
+@section Styles
+{
+    <style>
+        .res {
+            display: inline-block;
+            font-size: larger;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+    </style>
+}

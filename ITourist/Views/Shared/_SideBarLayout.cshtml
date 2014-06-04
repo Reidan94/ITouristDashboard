@@ -1,0 +1,74 @@
+﻿@using ITourist.Models.LogicModels.Managers
+@{
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    Culture culture = ViewBag.Culture;
+    IEnumerable<Place> places = DataManager.Places.GetPopularPlaces(culture);
+}
+<section class="title">
+    <div class="container">
+        <div class="row-fluid">
+            <div class="span12">
+                <div id="button-back" onclick="history.go(-1); return false;" title="@Language.Back">
+                    <i class="icon-arrow-circle-left"></i>
+                </div>
+                <h1>@ViewBag.Title</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- / .title -->
+
+<section id="about-us" class="container">
+    <div class="row-fluid">
+        <div class="span8">
+            @RenderBody()
+        </div>
+        <aside class="span4">
+            <div class="widget m-5">
+                @RenderSection("Search", false)
+            </div>
+
+            <div class="widget">
+                <h3>@Language.PopularPlaces</h3>
+                <div>
+                    @foreach (Place place in places)
+                    {
+                        <div class="media">
+                            <div class="pull-left">
+                               <a href="@Url.Action("Place", "Search", new { id = place.Id })" > @HtmlManager.Image(place.Image + "?w=100")</a>
+                            </div>
+                            <div class="media-body" style="font-size: 14px">
+                                @Html.ActionLink(place.GetName(culture), "Place", "Search", new { id = place.Id },null)
+                                <br />
+                                <i class="icon-user"> @place.Rating</i>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+            <div class="widget">
+                <h3>@Language.Categories</h3>
+                <div>
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <ul class="unstyled">
+                                @foreach (PlaceType placeType in PlaceTypes.GetAllPlaceTypes())
+                                {
+                                    <li><i class="icon-angle-right"></i> <a href="@Url.Action("Extended", "Search", new { NeedToSearch = true, CurrentSearchItem=2, CurrentPlaceType = placeType.Id })" target="_blank"> @placeType.GetName(culture)</a></li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </aside>
+    </div>
+</section>
+@section Scripts{
+    @RenderSection("Scripts", false)
+}
+@section Styles{
+    @RenderSection("Styles", false)
+}

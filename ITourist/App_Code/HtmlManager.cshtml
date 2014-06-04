@@ -1,0 +1,496 @@
+﻿@using System.Collections
+@using System.Globalization
+@using System.Web.Mvc
+@using System.Web.Mvc.Html
+@using ITourist.App_Resources
+@using ITourist.Models.DataModels
+@using HtmlHelper = System.Web.Mvc.HtmlHelper
+@functions
+{
+
+    public static string DefineImagePath(string path)
+    {
+        if (path[0] == 'h') return path;
+        if (path[0] == '~') path = path.Substring(1);
+        string slash = path[0] == '/' ? "" : "/";
+        return slash + path;
+    }
+
+    public static HtmlString AddLink(HtmlHelper html)
+    {
+        return html.ActionLink("Добавить новую страну", "AddCountry", "Dashboard");
+    }
+
+    public static HtmlString EditLink(HtmlHelper html, Country country)
+    {
+        return html.ActionLink("Редактировать",
+            "EditCountry",
+            new { id = country.Id });
+    }
+
+    public static HtmlString EditLink(HtmlHelper html, Region region)
+    {
+        return html.ActionLink("Редактировать",
+            "EditRegion",
+            new { regionId = region.Id }
+            );
+    }
+
+    public static HtmlString EditLink(HtmlHelper html, Place place)
+    {
+        return html.ActionLink("Редактировать",
+            "EditPlace",
+            new { placeId = place.Id }
+            );
+    }
+
+    public static HtmlString EditLink(HtmlHelper html, User user)
+    {
+        return html.ActionLink("Изменить статус пользователя",
+            "EditUserStatus",
+            new { id = user.Id }
+            );
+    }
+
+    public static HtmlString DeleteLink(HtmlHelper html, Country country)
+    {
+        return html.ActionLink("Удалить",
+            "DeleteCountry",
+            new { id = country.Id });
+    }
+
+    public static HtmlString DeleteLink(HtmlHelper html, Region region)
+    {
+        return html.ActionLink("Удалить",
+            "DeleteRegion",
+            new { regionId = region.Id });
+    }
+
+    public static HtmlString DeleteLink(HtmlHelper html, Place region)
+    {
+        return html.ActionLink("Удалить",
+            "DeletePlace",
+            new { placeId = region.Id });
+    }
+
+
+    public static string ToString(float? f)
+    {
+        if (!f.HasValue) return null;
+        return f.Value.ToString(new NumberFormatInfo { NumberDecimalSeparator = "." });
+    }
+
+    public static string ToString(double? f)
+    {
+        if (!f.HasValue) return null;
+        return f.Value.ToString(new NumberFormatInfo { NumberDecimalSeparator = "." });
+    }
+
+}
+@helper Image(string path, string alt = "", string styles = "", string classes = "")
+{
+    if (String.IsNullOrWhiteSpace(path))
+    {
+        <img style="@styles" class="@classes" src="/Images/no-image.png" alt="@alt" title="@alt" />
+    }
+    else
+    {
+        <img style="@styles" class="@classes" src="@DefineImagePath(path)" alt="@alt" title="@alt" />
+    }
+}
+
+@helper ImageUpload(string path = null, string alt = "", bool required = false, string name = "", string onchange = "")
+{
+    if (!String.IsNullOrWhiteSpace(path))
+    {
+        path = "/" + path;
+        <input type="hidden" name="DeleteImage" id="DeleteImage" value="false" />
+        <div class="removable-image">
+            <img class="thumb" src="@path" alt="@alt" title="@alt" />
+            <img class="cross" onclick="HideImage();" src="/Images/Icons/x.png" title="Удалить" alt="Удалить" />
+        </div>
+        <script>
+            function HideImage() {
+                $(".removable-image").hide('slow');
+                $("#DeleteImage").val(true);
+            }
+        </script>
+    }
+    if (!required)
+    {
+        <input id="@String.Concat("imageUpload", name)" accept="image/*" name="@String.Concat("imageUpload", name)" onchange="@onchange" type="file" />
+    }
+    else
+    {
+        <input id="@String.Concat("imageUpload", name)" accept="image/*" name="@String.Concat("imageUpload", name)" onchange="@onchange" type="file" required="required" />
+    }
+}
+
+@helper DashboardImageUpload(string labelText, string path = null, string alt = "", bool required = false, string name = "", string onchange = "")
+{
+    <div class="form-group">
+        <label class="control-label col-md-2">@labelText</label>
+        <div class="col-md-4">
+            @ImageUpload(path, alt, required, name, onchange)
+        </div>
+    </div>
+}
+
+@helper TextArea(string labelText, string id, string placeHolder = null, string value = null, bool required = false)
+{
+    string s = "";
+    if (required) { s = "required"; }
+    <div class="form-group">
+        <label class="control-label col-md-2" for="@id">@labelText</label>
+        <div class="col-md-4">
+            <textarea class="form-control" id="@id" name="@id" placeholder="@placeHolder" required="@s" rows="4">@value</textarea>
+        </div>
+    </div>
+}
+
+
+
+
+@helper InputNumber(string labelText, string id, float? placeHolder = null, float? min = null, float? max = null, double? value = null, float step = 1, HtmlHelper html = null, bool required = false)
+{
+    string placeholder = placeHolder == null ? "Неизвестно" : ToString(placeHolder);
+    string req = required ? "required" : null;
+    <div class="form-group">
+        <label class="control-label col-md-2" for="@id">
+            @if (html != null)
+            {
+                @html.Raw(labelText)
+            }
+            else
+            {
+                @labelText
+            }
+        </label>
+        <div class="col-md-4">
+            <input class="form-control" id="@id" name="@id" type="number" min="@ToString(min)" max="@ToString(max)" placeholder="@placeholder" value="@ToString(value)" required="@(req)" step="@ToString(step)" />
+        </div>
+    </div>
+}
+
+@helper DropDownList(HtmlHelper html, string labelText, string id, IEnumerable items, string valueField = "Id", string textField = "Name", object selectedValue = null)
+{
+    <div class="form-group">
+        <label class="control-label col-md-3">@labelText</label>
+        <div class="fleft pad-15">
+            @html.DropDownList(id, new SelectList(items, valueField, textField, selectedValue), new { @class = "form-control" })
+        </div>
+    </div>
+}
+
+@helper Pagination(UrlHelper url, string actionName, string controllerName, int max, int current, int? id = null, string s = null, bool top = false)
+{
+    string link;
+    if (max == 1)
+    {
+        <br />
+        return;
+    }
+
+    string styles = top ? "margin-bottom: 20px;" : "margin-top: 20px;";
+
+    <ul class="pagination" style="@(styles)">
+        @if (current == 1)
+        {
+            <li class="disabled"><a href="#">&larr;</a></li>
+        }
+        else
+        {
+            link = id.HasValue ?
+                url.Action(actionName, controllerName, new { id, page = current - 1, search = s })
+                : url.Action(actionName, controllerName, new { page = current - 1, search = s });
+
+            <li><a href="@link">&larr;</a></li>
+        }
+        @{
+            int l = current - 4;
+            int r = current + 4;
+            bool left = l > 1;
+            if (left)
+            {
+                link = id.HasValue ?
+                    url.Action(actionName, controllerName, new { id, page = 1, search = s })
+                    : url.Action(actionName, controllerName, new { page = 1, search = s });
+                <li><a href="@link">1</a></li>
+                <li class="disabled"><a href="#">...</a></li>
+            }
+            bool right = max > r;
+        }
+        @for (int i = left ? l : 1; i <= (right ? r : max); i++)
+        {
+            link = id.HasValue ?
+                 url.Action(actionName, controllerName, new { id, page = i, search = s })
+                : url.Action(actionName, controllerName, new { page = i, search = s });
+            if (i == current)
+            {
+                <li class="active"><a href="@link">@i</a></li>
+            }
+            else
+            {
+                <li><a href="@link">@i</a></li>
+            }
+        }
+        @{
+            if (right)
+            {
+                link = id.HasValue ?
+                    url.Action(actionName, controllerName, new { id, page = max, search = s })
+                    : url.Action(actionName, controllerName, new { page = max, search = s });
+                <li class="disabled"><a href="#">...</a></li>
+                <li><a href="@link">@max</a></li>
+            }
+        }
+        @if (current == max)
+        {
+            <li class="disabled"><a href="#">&rarr;</a></li>
+        }
+        else
+        {
+            link = id.HasValue ?
+                 url.Action(actionName, controllerName, new { id, page = current + 1, search = s })
+                : url.Action(actionName, controllerName, new { page = current + 1, search = s });
+            <li><a href="@link">&rarr;</a></li>
+        }
+    </ul>
+}
+@helper MainProcessResultContainer(ProcessResult result, Culture culture)
+{
+    if (result == null)
+    {
+        return;
+    }
+    string classes = "alert  alert-dismissable ";
+    classes += result.Succeeded ? "alert-success" : "alert-danger";
+    <div class="@classes">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <span>@result.GetMessage(culture)</span>
+    </div>
+}
+}
+@helper SearchResult(bool b, string res)
+{
+    if (res != null)
+    {
+        res = String.Format(b ? Language.SearchResults : Language.NothingFound, res);
+        <div style="font-style: italic;  font-size: 150%;margin-bottom: 20px">@res</div>
+    }
+}
+@helper SearchResult()
+{
+    <div style="font-style: italic;  font-size: 150%;margin-bottom: 20px">@Language.SearchFoundNothing</div>
+}
+@helper CountryList(UrlHelper url, IEnumerable<Country> countries, Culture culture)
+{
+    countries = countries.ToList();
+    if (countries == null || !countries.Any())
+    {
+        return;
+    }
+    Country lastCountry = countries.Last();
+    <ul class="ilist">
+        @foreach (var country in countries)
+        {
+            <li>
+                <div class="media">
+                    <div class="pull-left">
+                        <a href="@url.Action("Country", "Search", new {id = country.Id})">@Image(country.Image + "?w=150", country.GetName(culture))</a>
+                    </div>
+                    <div class="media-body">
+                        <a href="@url.Action("Country", "Search", new {id = country.Id})">
+                            <span>@country.GetName(culture)</span>
+                        </a>
+                        <br />
+                        <div>@NumberTranslator.RegionsToString(country.Regions.Count, culture)</div>
+                    </div>
+                </div>
+                @if (country != lastCountry)
+                {
+                    <hr />
+                }
+            </li>
+        }
+    </ul>
+}
+@helper RegionList(UrlHelper url, IEnumerable<Region> regions, Culture culture)
+{
+    regions = regions.ToList();
+    Region lastRegion = regions.Last();
+    <ul class="ilist">
+        @foreach (var region in regions)
+        {
+            <li>
+                <div class="media">
+                    <div class="pull-left">
+                        <a class="magnifier" href="@DefineImagePath(region.Image)">
+                            <div class="">
+                                @Image(region.Image + "?w=200", region.GetName(culture))
+                            </div>
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <a href="@url.Action("Region", "Search", new {id = region.Id})">
+                            <span>@region.GetName(culture)</span>
+                        </a>
+                        <br />
+                        <div>@NumberTranslator.PlacesToString(region.Places.Count, culture)</div>
+                        <div><i class="icon-user"> @region.Rating</i></div>
+                    </div>
+                </div>
+                @if (region != lastRegion)
+                {
+                    <hr />
+                }
+            </li>
+        }
+    </ul>
+}
+
+@helper ProccessResultContainer(ProcessResult result = null, HtmlHelper html = null)
+{
+    if (result != null)
+    {
+        string classes = "alert  alert-dismissable ";
+        classes += result.Succeeded ? "alert-success" : "alert-danger";
+        <div class="@classes">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            @if (html == null)
+            {
+                <span>@result.Message.Ru</span>
+            }
+            else
+            {
+                <span>@html.Raw(result.Message.Ru)</span>
+            }
+        </div>
+    }
+}
+@helper AddButton(HtmlString actionLink)
+{
+    <button type="button" class="btn  btn-success link-button">@actionLink</button>
+}
+
+@helper DeleteButton(HtmlString actionLink)
+{
+    <button type="button" class="btn  btn-danger link-button">@actionLink</button>
+}
+
+@helper DashboardBreadCrumbs(HtmlHelper html, int flag = 0)
+{
+    if (flag == 0)
+    {
+        @html.ActionLink("Страны", "Index", "Dashboard")
+    }
+    if (flag == 1)
+    {
+        @html.ActionLink("Пользователи", "Users", "Dashboard")
+    }
+    if (flag == 2)
+    {
+        @html.ActionLink("Маршруты", "GetPublicRoutes", "Dashboard")
+    }
+}
+
+@helper DashboardBreadCrumbs(HtmlHelper html, User user, HtmlString s = null)
+{
+    @DashboardBreadCrumbs(html, 1)
+    var userName = user.FullName;
+    @html.ActionLink(userName, "GetUser", "Dashboard", new { id = user.Id }, null)
+    if (s != null)
+    { @s }
+}
+
+@helper DropDownListDashboard(HtmlHelper html, string labelText, string id, IEnumerable items, string valueField = "Id", string textField = "Name", object selectedValue = null)
+{
+    <div class="form-group">
+        <label class="control-label col-md-2">@labelText</label>
+        <div class="col-md-4">
+            @html.DropDownList(id, new SelectList(items, valueField, textField, selectedValue), new { @class = "form-control" })
+        </div>
+    </div>
+}
+
+@helper InputText(string labelText, string id, string placeHolder = null, string value = null, bool required = false)
+{
+    string s = "";
+    if (required) { s = "required"; }
+    <div class="form-group">
+        <label class="control-label col-md-2" for="@id">@labelText</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control" id="@id" name="@id" placeholder="@placeHolder" value="@value" required="@s" />
+        </div>
+    </div>
+}
+
+@helper DashboardBreadCrumbs(HtmlHelper html, Country country, HtmlString s = null)
+{
+    @DashboardBreadCrumbs(html)
+    var countryName = country.Translation.Ru;
+    @html.ActionLink(countryName, "Country", "Dashboard", new { id = country.Id }, null)
+    if (s != null)
+    { @s }
+}
+
+
+
+@helper DashboardBreadCrumbs(HtmlHelper html, Route route, HtmlString s = null)
+{
+    @DashboardBreadCrumbs(html, 2)
+    var countryName = route.Translation.Ru;
+    @html.ActionLink(countryName, "GetRoute", "Dashboard", new { routeId = route.Id }, null)
+    if (s != null)
+    { @s }
+}
+
+@helper DashboardBreadCrumbs(HtmlHelper html, Country country, Region region, HtmlString s = null)
+{
+    @DashboardBreadCrumbs(html, country)
+    var regionName = region.Translation.Ru;
+    @html.ActionLink(regionName, "Region", "Dashboard", new { regionId = region.Id }, null)
+    if (s != null)
+    {@s}
+}
+
+@helper DashboardBreadCrumbs(HtmlHelper html, Country country, Region region, Place place, HtmlString s = null)
+{
+    @DashboardBreadCrumbs(html, country, region)
+    var placeName = place.Translation.Ru;
+    @html.ActionLink(placeName, "Place", "Dashboard", new { placeId = place.Id }, null)
+    if (s != null)
+    {@s}
+}
+
+@helper EditIconLink(string url)
+{
+    <a style="display: inline-block" title="Редактировать" href="@url"><i class="fa fa-pencil fa-fw"></i>Изменить</a>
+}
+
+@helper DeleteIconLink(string url)
+{
+    <a style="display: inline-block" title="Удалить" href="@url"><i class="fa fa-trash-o fa-fw"></i>Удалить</a>
+}
+
+@helper SubmitButton(bool disabled = false)
+{
+    if (disabled)
+    {
+        <input id="submit" disabled="disabled" type="submit" value="Подтвердить" class="btn btn-default btn-outline " />
+    }
+    else
+    {
+        <input id="submit" type="submit" value="Подтвердить" class="btn btn-default btn-outline " />
+    }
+}
+
+@helper EditButton(HtmlString actionLink)
+{
+    <button type="button" class="btn  btn-primary link-button">@actionLink</button>
+}
+
+@helper DefaultButton(HtmlString actionLink)
+{
+    <button type="button" class="btn btn-default link-button">@actionLink</button>
+}

@@ -1,0 +1,643 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>О нас</value>
+  </data>
+  <data name="AddPlaceToTheRoute" xml:space="preserve">
+    <value>Добавить в маршрут</value>
+  </data>
+  <data name="AllPhotos" xml:space="preserve">
+    <value>Все фото</value>
+  </data>
+  <data name="AllRightsReserved" xml:space="preserve">
+    <value>Все права защищены</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>Назад</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>Категория</value>
+  </data>
+  <data name="CheckPointAdded" xml:space="preserve">
+    <value>Чекпоинт успешно добавлен</value>
+  </data>
+  <data name="CheckPointNotExists" xml:space="preserve">
+    <value>Такого чекпоинта не сущестувет</value>
+  </data>
+  <data name="ChooseCountry" xml:space="preserve">
+    <value>Выберите страну</value>
+  </data>
+  <data name="ChosenPlaces" xml:space="preserve">
+    <value>Выбранные места</value>
+  </data>
+  <data name="ChooseRegion" xml:space="preserve">
+    <value>Выберите регион</value>
+  </data>
+  <data name="CityOrRegion" xml:space="preserve">
+    <value>Город/регион</value>
+  </data>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Подтвердить пароль</value>
+  </data>
+  <data name="Contacts" xml:space="preserve">
+    <value>Контакты</value>
+  </data>
+  <data name="ControlPanel" xml:space="preserve">
+    <value>Панель управления</value>
+  </data>
+  <data name="Countries" xml:space="preserve">
+    <value>Страны</value>
+  </data>
+  <data name="CountriesNotMatched" xml:space="preserve">
+    <value>Страны не совпадают</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>Страна</value>
+  </data>
+  <data name="CountryNotExists" xml:space="preserve">
+    <value>Такой страные не существует</value>
+  </data>
+  <data name="CreateRoute" xml:space="preserve">
+    <value>Создать маршрут</value>
+  </data>
+  <data name="DefaultRouteName" xml:space="preserve">
+    <value>Мой маршрут</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Подробнее</value>
+  </data>
+  <data name="DoNotSave" xml:space="preserve">
+    <value>Не сохранять</value>
+  </data>
+  <data name="DoYouWantToSaveRoute" xml:space="preserve">
+    <value>Сохранить в 'Мои маршруты'?</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редактировать</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EmailConfirmation" xml:space="preserve">
+    <value>Регистрация прошла успешно. Зайдите на мыло для подтверждения регистрации!</value>
+  </data>
+  <data name="Enter" xml:space="preserve">
+    <value>Войти</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Выход</value>
+  </data>
+  <data name="Experience" xml:space="preserve">
+    <value>Опыт</value>
+  </data>
+  <data name="Female" xml:space="preserve">
+    <value>Женский</value>
+  </data>
+  <data name="FiveStarOfFive" xml:space="preserve">
+    <value>5 звезд из 5</value>
+  </data>
+  <data name="FourStarOfFive" xml:space="preserve">
+    <value>4 звезды из 5</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Главная</value>
+  </data>
+  <data name="Hours" xml:space="preserve">
+    <value>ч</value>
+  </data>
+  <data name="Image" xml:space="preserve">
+    <value>Картинка</value>
+  </data>
+  <data name="InvalidCountryID" xml:space="preserve">
+    <value>Неверный ID страны</value>
+  </data>
+  <data name="InvalidEmail" xml:space="preserve">
+    <value>Неверный адрес электронной почты. Пользователь с таким адресом уже есть</value>
+  </data>
+  <data name="InvalidPassword" xml:space="preserve">
+    <value>Неверный пароль</value>
+  </data>
+  <data name="InvalidPlaceID" xml:space="preserve">
+    <value>Неверное значение ID места</value>
+  </data>
+  <data name="InvalidToken" xml:space="preserve">
+    <value>Неверный токен</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Фамилия</value>
+  </data>
+  <data name="Like" xml:space="preserve">
+    <value>Поставить лайк</value>
+  </data>
+  <data name="Likes" xml:space="preserve">
+    <value>Лайки</value>
+  </data>
+  <data name="LogIn" xml:space="preserve">
+    <value>Войти</value>
+  </data>
+  <data name="Male" xml:space="preserve">
+    <value>Мужской</value>
+  </data>
+  <data name="Minutes" xml:space="preserve">
+    <value>мин</value>
+  </data>
+  <data name="NoRegions" xml:space="preserve">
+    <value>В этой стране нет регионов</value>
+  </data>
+  <data name="NoRoutes" xml:space="preserve">
+    <value>Нет маршрутов</value>
+  </data>
+  <data name="NoSuchEmail" xml:space="preserve">
+    <value>Извините, мы не нашли пользователя с таким адресом электронной почты. Попробуйте снова</value>
+  </data>
+  <data name="NotAllFieldsAreFilled" xml:space="preserve">
+    <value>Не все поля заполнены</value>
+  </data>
+  <data name="OneStarOfFive" xml:space="preserve">
+    <value>1 звезда из 5</value>
+  </data>
+  <data name="PassWord" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="PasswordsAreNotEqual" xml:space="preserve">
+    <value>Пароли не совпадают</value>
+  </data>
+  <data name="PlaceIsAlreadyInTheRoute" xml:space="preserve">
+    <value>Место уже есть в маршруте</value>
+  </data>
+  <data name="PlaceNotExist" xml:space="preserve">
+    <value>Места не существует</value>
+  </data>
+  <data name="PlaceRemovedSuccessfully" xml:space="preserve">
+    <value>Место успешно удалено</value>
+  </data>
+  <data name="PlaceWasAddedToTheRoute" xml:space="preserve">
+    <value>Место было успешно  добавлено в маршрут</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>Профиль</value>
+  </data>
+  <data name="Rating" xml:space="preserve">
+    <value>Рейтинг</value>
+  </data>
+  <data name="RecomendedDestionations" xml:space="preserve">
+    <value>Рекомендации</value>
+  </data>
+  <data name="Recommendations" xml:space="preserve">
+    <value>Рекомендации</value>
+  </data>
+  <data name="RegionAddedSuccessfully" xml:space="preserve">
+    <value>Регион успешно добавлен</value>
+  </data>
+  <data name="RegionDeletedSuccessfully" xml:space="preserve">
+    <value>Регион был успешно удален</value>
+  </data>
+  <data name="RegionEditedSuccessfully" xml:space="preserve">
+    <value>Информация о регионе успешно обновлена</value>
+  </data>
+  <data name="RegionNotExist" xml:space="preserve">
+    <value>Такого региона не существует</value>
+  </data>
+  <data name="Registration" xml:space="preserve">
+    <value>Регистрация</value>
+  </data>
+  <data name="RegistrationCompletedSuccesfully" xml:space="preserve">
+    <value>Регистрация завершена. Письмо для подтверждения регистрации выслано Вам на почту.</value>
+  </data>
+  <data name="RegistrationConfirmed" xml:space="preserve">
+    <value>Регистрация успешно завершена!</value>
+  </data>
+  <data name="RegistrationMessage" xml:space="preserve">
+    <value>Вы только что зарегестрировались на сервисе ITourist. Регистрация прошла успешно. Для потверждения регистрации,пройдите пожалуйста по ссылке : {0}.</value>
+  </data>
+  <data name="RegistrationTopic" xml:space="preserve">
+    <value>Регистрация</value>
+  </data>
+  <data name="RemovePlaceFromRoute" xml:space="preserve">
+    <value>Удалить из маршрута</value>
+  </data>
+  <data name="RepeatPassword" xml:space="preserve">
+    <value>Повторите пароль, пожалуйста</value>
+  </data>
+  <data name="RouteCreated" xml:space="preserve">
+    <value>Маршрут успешно создан</value>
+  </data>
+  <data name="RouteEmpty" xml:space="preserve">
+    <value>Маршрут пустой</value>
+  </data>
+  <data name="Routes" xml:space="preserve">
+    <value>Маршруты</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Поиск</value>
+  </data>
+  <data name="Sex" xml:space="preserve">
+    <value>Пол</value>
+  </data>
+  <data name="ThatAreWorthSeeing" xml:space="preserve">
+    <value>которые стоит увидеть</value>
+  </data>
+  <data name="ThereArePlentyOfPlaces" xml:space="preserve">
+    <value>В мире так много мест</value>
+  </data>
+  <data name="ThreeStarOfFive" xml:space="preserve">
+    <value>3 звезды из 5</value>
+  </data>
+  <data name="TopDestinations" xml:space="preserve">
+    <value>Лучшие места</value>
+  </data>
+  <data name="TotalDistance" xml:space="preserve">
+    <value>Общее расстояние</value>
+  </data>
+  <data name="TotalDuration" xml:space="preserve">
+    <value>Общее время</value>
+  </data>
+  <data name="TwoStarOfFive" xml:space="preserve">
+    <value>2 звезды из 5</value>
+  </data>
+  <data name="UserAddedSuccessfully" xml:space="preserve">
+    <value>Пользователь успешно добавлен</value>
+  </data>
+  <data name="UserAlreadyExists" xml:space="preserve">
+    <value>Пользователь с таким e-mailом уже существует</value>
+  </data>
+  <data name="UserDeletedSuccessfully" xml:space="preserve">
+    <value>Пользователь был успешно удален</value>
+  </data>
+  <data name="UserEditedSuccessfully" xml:space="preserve">
+    <value>Информация о пользователе успешно обновлена</value>
+  </data>
+  <data name="UserEmail" xml:space="preserve">
+    <value>E-mail</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="UserNotExists" xml:space="preserve">
+    <value>Такого пользователя не существует</value>
+  </data>
+  <data name="ViewOnMap" xml:space="preserve">
+    <value>Просмотреть на карте</value>
+  </data>
+  <data name="WatchMyRoutes" xml:space="preserve">
+    <value>Просмотреть мои маршруты</value>
+  </data>
+  <data name="WatchRoute" xml:space="preserve">
+    <value>Просмотреть текущий маршрут</value>
+  </data>
+  <data name="AddRegion" xml:space="preserve">
+    <value>Добавить регион</value>
+  </data>
+  <data name="NameEn" xml:space="preserve">
+    <value>Название на английском</value>
+  </data>
+  <data name="NameRu" xml:space="preserve">
+    <value>Название на русском</value>
+  </data>
+  <data name="UserLogedIn" xml:space="preserve">
+    <value>Вы успешно вошли в систему</value>
+  </data>
+  <data name="NoPlaces" xml:space="preserve">
+    <value>Нет мест</value>
+  </data>
+  <data name="NothingFound" xml:space="preserve">
+    <value>По запросу "{0}" ничего не найдено</value>
+  </data>
+  <data name="SearchCountry" xml:space="preserve">
+    <value>Найти страну...</value>
+  </data>
+  <data name="SearchPlace" xml:space="preserve">
+    <value>Найти место...</value>
+  </data>
+  <data name="SearchRegion" xml:space="preserve">
+    <value>Найти регион...</value>
+  </data>
+  <data name="SearchResults" xml:space="preserve">
+    <value>Результаты поиска по запросу "{0}"</value>
+  </data>
+  <data name="LogInWith" xml:space="preserve">
+    <value>Войти с помощью:</value>
+  </data>
+  <data name="SearchRoute" xml:space="preserve">
+    <value>Найти маршрут...</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Подтвердить</value>
+  </data>
+  <data name="ConfirmRegistration" xml:space="preserve">
+    <value>Подтвердите регистрацию</value>
+  </data>
+  <data name="RegistrationConfirmation" xml:space="preserve">
+    <value>Подтверждение регистрации</value>
+  </data>
+  <data name="Choose" xml:space="preserve">
+    <value>Выберите</value>
+  </data>
+  <data name="CreateYourRoute" xml:space="preserve">
+    <value>Создайте маршрут</value>
+  </data>
+  <data name="OrChooseExisting" xml:space="preserve">
+    <value>или выберите существующий</value>
+  </data>
+  <data name="Travel" xml:space="preserve">
+    <value>Путешествуйте!</value>
+  </data>
+  <data name="WhereYouWantToGo" xml:space="preserve">
+    <value>куда Вы хотите поехать</value>
+  </data>
+  <data name="TwoPlacesNeeded" xml:space="preserve">
+    <value>Необходимо минимум два места для создания маршрута</value>
+  </data>
+  <data name="LoopRoute" xml:space="preserve">
+    <value>Закончить маршрут на стартовом месте</value>
+  </data>
+  <data name="OptimizeWaypoints" xml:space="preserve">
+    <value>Оптимизоровать промежуточные пункты</value>
+  </data>
+  <data name="PageNotFound" xml:space="preserve">
+    <value>404, Страница не найдена</value>
+  </data>
+  <data name="RouteNotFound" xml:space="preserve">
+    <value>Машрут не найден</value>
+  </data>
+  <data name="SaveRoute" xml:space="preserve">
+    <value>Сохранить маршрут</value>
+  </data>
+  <data name="ToHome" xml:space="preserve">
+    <value>На главную</value>
+  </data>
+  <data name="ViewSelectedPlaces" xml:space="preserve">
+    <value>Просмотреть выбранные места</value>
+  </data>
+  <data name="Bookmarks" xml:space="preserve">
+    <value>Закладки</value>
+  </data>
+  <data name="EnterTheNameOfTheRoute" xml:space="preserve">
+    <value>Задайте имя маршрута</value>
+  </data>
+  <data name="GoToBookmarks" xml:space="preserve">
+    <value>Перейти в закладки</value>
+  </data>
+  <data name="PreviewRoute" xml:space="preserve">
+    <value>Просмотреть маршрут
+</value>
+  </data>
+  <data name="ReorderPlace" xml:space="preserve">
+    <value>Переставьте места ниже в нужном Вам порядке</value>
+  </data>
+  <data name="RoutePreview" xml:space="preserve">
+    <value>Предпросмотр маршрута</value>
+  </data>
+  <data name="RouteSaved" xml:space="preserve">
+    <value>Маршрут сохранен</value>
+  </data>
+  <data name="YouHaveNoBookmarks" xml:space="preserve">
+    <value>Вы еще не сохранили к себе в закладки ни одного маршрута</value>
+  </data>
+  <data name="UseMobileAppToPassRoutes" xml:space="preserve">
+    <value>Вы всегда сможете пройти эти маршруты с помощью Вашего мобильного приложения iTourist</value>
+  </data>
+  <data name="AveragePassTime" xml:space="preserve">
+    <value>Среднее время прохождения:</value>
+  </data>
+  <data name="CommentEmpty" xml:space="preserve">
+    <value>Комментарий не может быть пустым</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>Комментарии</value>
+  </data>
+  <data name="LeaveComment" xml:space="preserve">
+    <value>Оставить комментарий</value>
+  </data>
+  <data name="Photos" xml:space="preserve">
+    <value>Фото</value>
+  </data>
+  <data name="SignIn" xml:space="preserve">
+    <value>Войдите</value>
+  </data>
+  <data name="ToLeaveComment" xml:space="preserve">
+    <value>, чтобы оставить комментарий</value>
+  </data>
+  <data name="UserNotFound" xml:space="preserve">
+    <value>Пользователь не найден</value>
+  </data>
+  <data name="AddToBookmarks" xml:space="preserve">
+    <value>Добавить в закладки</value>
+  </data>
+  <data name="AreYouSure" xml:space="preserve">
+    <value>Вы уверены?</value>
+  </data>
+  <data name="EnterRouteTranslations" xml:space="preserve">
+    <value>Введите переводы</value>
+  </data>
+  <data name="MakePublic" xml:space="preserve">
+    <value>Сделать публичным</value>
+  </data>
+  <data name="PopularPlaces" xml:space="preserve">
+    <value>Популярные места</value>
+  </data>
+  <data name="Remove" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="RemoveCompletely" xml:space="preserve">
+    <value>Удалить полностью</value>
+  </data>
+  <data name="RemovePublicNotification" xml:space="preserve">
+    <value>Этот маршрут публичный. Если Вы удалите его, он будет удален из Ваших закладок и из закладок всех других пользователей которые сохранили его к себе в закладки. Вы не сможете потом его восстановить.</value>
+  </data>
+  <data name="RemoveRoute" xml:space="preserve">
+    <value>Удалить маршрут</value>
+  </data>
+  <data name="Categories" xml:space="preserve">
+    <value>Категории</value>
+  </data>
+  <data name="ChooseType" xml:space="preserve">
+    <value>Выберите тип:</value>
+  </data>
+  <data name="ExtendedSearch" xml:space="preserve">
+    <value>Расширенный поиск</value>
+  </data>
+  <data name="NameShouldContain" xml:space="preserve">
+    <value>Название должно содержать: </value>
+  </data>
+  <data name="OrderBy" xml:space="preserve">
+    <value>Сортировать по: </value>
+  </data>
+  <data name="Regions" xml:space="preserve">
+    <value>Регионы</value>
+  </data>
+  <data name="SearchFor" xml:space="preserve">
+    <value>Искать: </value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value>Места</value>
+  </data>
+  <data name="SearchFoundNothing" xml:space="preserve">
+    <value>Ничего не найдено</value>
+  </data>
+  <data name="Dima" xml:space="preserve">
+    <value>Дмитрий Бекузаров</value>
+  </data>
+  <data name="ITouristDescription" xml:space="preserve">
+    <value>«ITourist» является очень удобным, мощным сервисом, предназначенным для туристов. Это очень полезный помощник, когда вы путешествуете по чужой стране. Вы можете просматривать популярные места, создавать маршруты или выбирать существующие. Вы также можете поделиться своими маршрутами с другими туристами. Путешествуйте, набирайтесь опыта и станьте самым авантюрным человеком в мире!</value>
+  </data>
+  <data name="Kostya" xml:space="preserve">
+    <value>Константин Чикеренда</value>
+  </data>
+  <data name="Lesha" xml:space="preserve">
+    <value>Алексей Сподарец</value>
+  </data>
+  <data name="Masha" xml:space="preserve">
+    <value>Мария Войтенко</value>
+  </data>
+  <data name="Maxim" xml:space="preserve">
+    <value>Максим Ерохин</value>
+  </data>
+  <data name="MobileApps" xml:space="preserve">
+    <value>iTourist для мобильного</value>
+  </data>
+  <data name="OurTeam" xml:space="preserve">
+    <value>Наша команда</value>
+  </data>
+  <data name="Reidan" xml:space="preserve">
+    <value>Рейдан Абди</value>
+  </data>
+  <data name="Vova" xml:space="preserve">
+    <value>Гриценко Владимир</value>
+  </data>
+  <data name="WhatIsITourist" xml:space="preserve">
+    <value>Что такое «ITourist»?</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Консоль</value>
+  </data>
+</root>

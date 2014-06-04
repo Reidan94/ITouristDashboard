@@ -1,0 +1,54 @@
+﻿@model Country
+@{
+    ViewBag.Title = Language.AddRegion;
+    Layout = "~/Views/Shared/Dashboard_Layout.cshtml";
+}
+
+<div class="breadcrumbs flat">
+    @HtmlManager.DashboardBreadCrumbs(Html, Model)
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header fleft">Добавить регион</h1>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+
+        @HtmlManager.ProccessResultContainer(ViewBag.Result)
+        @using (Html.BeginForm("ManageRegionAdding", "Dashboard", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true)
+
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="nameRussian">Название Рус.</label>
+                    <div class="col-md-2">
+                        <input class="form-control" id="nameRussian" name="nameRussian" type="text" placeholder="Название" required="required">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="nameEnglish">Название En.</label>
+                    <div class="col-md-2">
+                        <input class="form-control" id="nameEnglish" name="nameEnglish" type="text" placeholder="Название" required="required">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2">Изображение</label>
+                    <div class="col-md-2">
+                        @HtmlManager.ImageUpload()
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @HtmlManager.SubmitButton()
+                        @HtmlManager.DefaultButton(Html.ActionLink("Назад", "Country", "Dashboard", new { id = Model.Id}, null))
+                    </div>
+                </div>
+
+               <input class="form-control" id="CountryId" name="CountryId" type="hidden" hidden placeholder="Название" value="@Model.Id" required="required">
+            </div>
+        }
+    </div>
+</div>
